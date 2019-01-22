@@ -27,6 +27,7 @@ if ($isPosted) {
             $loginOK = loginValid($login,$psw);
         if($loginOK) { header("location:".$_SESSION['origin']??"home.php"."?name=$login");
             $_SESSION["user"] = $login;
+            $_SESSION["logtype"] = $loginOK['qualite'];
             echo "ca roule";
             } else {
             $errors = "Informations de connexion incorrectes";
