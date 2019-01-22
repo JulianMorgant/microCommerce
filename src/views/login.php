@@ -1,16 +1,15 @@
 <?php
 require_once MODEL_PATH.'connection.php';
-// session_start();
 
 $isPosted = filter_has_var(INPUT_POST,"submit"); // données postés ?
 $errors = "";
-
 
 function loginValid($mLog,$mPsw) {
 
     $sql = "SELECT * FROM utilisateurs WHERE pseudo=? AND mdp=?";
     $cnx = new ConnectionDB();
     $rows =  $cnx->getResponse($sql,[$mLog, $mPsw]);
+    var_dump($rows);
     return count($rows)>0?$rows[0]:null;
 }
 
@@ -26,9 +25,7 @@ if ($isPosted) {
     if(empty($errors)) {
             $loginOK = loginValid($login,$psw);
         if($loginOK) { header("location:".$_SESSION['origin']??"home.php"."?name=$login");
-            $_SESSION["user"] = $login;
-            $_SESSION["logtype"] = $loginOK['qualite'];
-            echo "ca roule";
+            $_SESSION["user"] = $loginOK;
             } else {
             $errors = "Informations de connexion incorrectes";
         }

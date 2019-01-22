@@ -13,8 +13,10 @@ foreach ($data as $product) {
 
     echo "<tr>";
     foreach ($product as $val) {
+
         echo "<th>" . $val . " </th>";
     }
+    echo "<th><input type='checkbox'>ajouter</input></th>";
     echo"</tr>";
 }
 
