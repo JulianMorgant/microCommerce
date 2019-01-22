@@ -14,9 +14,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php?page=upload">Upload</a>
             </li>
+
+            <!-- MENU ADMIN -->
+            <?php if((isset($_SESSION["logtype"]))&& $_SESSION["logtype"] == "admin") { ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
+                    Admin Menu
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="index.php?page=tabledemultiplication.php&num=5">Ajout Produit</a>
@@ -24,15 +27,27 @@
                     <a class="dropdown-item" href="index.php?page=tabledemultiplication.php&num=7">Ajout Admin</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?page=login">Connexion</a>
-            </li>
+            <?php }else{ ?> <!-- MENU USER -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=userAccount">Mon Compte</a>
+                </li>
+            <?php } ?>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="index.php?page=basket">Pannier</a>
             </li>
+
+            <?php if(isset($_SESSION["user"])) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?page=deconnection">Deconnexion</a>
             </li>
+            <?php }else{ ?>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?page=login">Connexion</a>
+            </li>
+            <?php } ?>
+
         </ul>
     </div>
 
