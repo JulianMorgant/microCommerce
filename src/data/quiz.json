@@ -1,0 +1,7 @@
+[
+  {"question" :  "Combien est 1 ? ","answers" : ["1","2","3"],"goodAnswer" : "1" },
+  {"question" :  "Combien est 2 ? ","answers" : ["1","2","3"],"goodAnswer" : "2" },
+  {"question" :  "Combien est 3 ? ","answers" : ["un","deux","trois"],"goodAnswer" : "3" },
+  {"question" :  "Combien est 4 ? ","answers" : ["1","2","3","4","5"],"goodAnswer" : "4" },
+  {"question" :  "Combien est 5 ? ","answers" : ["1","2","3","4","5"],"goodAnswer" : "5" }
+]
