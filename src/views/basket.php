@@ -1,46 +1,46 @@
 <?php
 $listeProduits = $data['list'] ?? [];
-
-ob_start();
-if(count($listeProduits) < 0) {
-    $keyArray = array_keys($listeProduits[0]);
-
-    echo "<tr>";
-    foreach ($keyArray as $_key) {
-        echo "<th>" . $_key . "</th>";
-    }
-    echo "</tr>";
-
-    foreach ($listeProduits as $product) {
-
-        echo "<tr>";
-        foreach ($product as $val) {
-
-            echo "<th>" . $val . " </th>";
-        }
-        echo "<th><input type='checkbox'>ajouter</input></th>";
-        echo "</tr>";
-    }
-
-}else{
-    echo "pas de produits";};
-
-
-
-$html=ob_get_clean();
 ?>
+<div class="row">
+    <div class="col col-6">
 
 
+        <h2>Liste des produits</h2>
 
-<h2>Liste des produits</h2>
+        <form class="nav-item" method="post">
+            <input type="text" name="searchTxt" id="searchTxt" class="nav-link">
+            <button type="submit" name="search" id="search" class="nav-link">Go</button>
 
-<form class="nav-item" method="post">
-    <input type="text" name="searchTxt" id="searchTxt" class="nav-link">
-    <button type="submit" name="search" id="search" class="nav-link">Go</button>
-
-</form>
+        </form>
 
 
-<table class="table-striped">
-    <?= $html?>
-</table>
+        <table class="table table-sm table-dark">
+            <thead class="thead-light">
+            <tr>
+                <th>Designation</th>
+                <th>Prix</th>
+                <th>Stock</th>
+            </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                foreach ($listeProduits as $product) {
+
+                    echo "<tr scope='col'>";
+                    echo "<th scope=\"row\">" . $product['designation'] . "</th>";
+                    echo "<th scope=\"row\">" . $product['prix'] . "</th>";
+                    echo "<th scope=\"row\">" . $product['qte_stockee'] . "</th>";
+                    echo "<th scope=\"row\"><input type='submit' name='add[" . $product['id_produit'] . "]' value='add[" . $product['id_produit'] . "]'>+</input></th>";
+                    echo "</tr>";
+
+                }?>
+
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col col-6">
+        <h2>Pannier</h2>
+    </div>
+</div>

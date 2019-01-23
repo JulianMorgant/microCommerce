@@ -8,23 +8,15 @@ function getAllProducts()
     return $cnx->getResponse($sql,[]);
 
 }
-/*
+
 function getAllProductsLike($term)
 {
     $cnx = new ConnectionDB();
-    $sql = "SELECT * FROM produits WHERE ? LIKE ?";
-    $term = "%".$term."%";
-    var_dump($term);
-    return $cnx->getResponse($sql,['designation',$term]);
-
-
+    $sql = "SELECT * FROM produits WHERE designation  LIKE ?";
+    return $cnx->getResponse($sql,["%$term%"]);
 }
-*/
-function getAllProductsLike($term)
-{
-    $cnx = new ConnectionDB();
-    $term = "%".$term."%";
-    $sql = "SELECT * FROM produits WHERE designation LIKE".$term;
-    return $cnx->getResponse($sql,[]);
 
-}
+
+
+
+

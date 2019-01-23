@@ -91,7 +91,7 @@ class ConnectionDB{
         self::$connection = null;
     }
 
-    public function getResponse ($sql,array $param) {
+    public function getResponse ($sql,$param) {
         $this->getConnection();
         $statement =  self::$connection->prepare($sql);
         $statement->execute($param);
