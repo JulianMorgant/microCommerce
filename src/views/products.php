@@ -2,7 +2,7 @@
 
 ob_start();
 $keyArray = array_keys($data[0]);
-
+var_dump($keyArray);
 echo "<tr>";
 foreach ($keyArray as $_key) {
     echo "<th>". $_key."</th>";

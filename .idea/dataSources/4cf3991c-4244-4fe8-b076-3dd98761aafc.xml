@@ -1306,86 +1306,105 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="327" parent="3" name="cdes"/>
-    <table id="328" parent="3" name="clients"/>
-    <table id="329" parent="3" name="ligcdes"/>
-    <table id="330" parent="3" name="pays"/>
-    <table id="331" parent="3" name="produits"/>
-    <table id="332" parent="3" name="utilisateurs"/>
-    <table id="333" parent="3" name="vendeurs"/>
-    <table id="334" parent="3" name="vendeurs_villes"/>
-    <table id="335" parent="3" name="ventes"/>
-    <table id="336" parent="3" name="ventes_croisees"/>
-    <table id="337" parent="3" name="villes"/>
-    <routine id="338" parent="3" name="clientsDUneVille">
+    <table id="327" parent="3" name="categorie"/>
+    <table id="328" parent="3" name="cdes"/>
+    <table id="329" parent="3" name="clients"/>
+    <table id="330" parent="3" name="ligcdes"/>
+    <table id="331" parent="3" name="pays"/>
+    <table id="332" parent="3" name="produits"/>
+    <table id="333" parent="3" name="user_client"/>
+    <table id="334" parent="3" name="utilisateurs"/>
+    <table id="335" parent="3" name="vendeurs"/>
+    <table id="336" parent="3" name="vendeurs_villes"/>
+    <table id="337" parent="3" name="ventes"/>
+    <table id="338" parent="3" name="ventes_croisees"/>
+    <table id="339" parent="3" name="villes"/>
+    <routine id="340" parent="3" name="clientsDUneVille">
       <SourceTextLength>54</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="339" parent="3" name="paysDelete">
+    <routine id="341" parent="3" name="paysDelete">
       <SourceTextLength>51</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="340" parent="3" name="paysInsert">
+    <routine id="342" parent="3" name="paysInsert">
       <SourceTextLength>74</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="341" parent="3" name="paysSelect">
+    <routine id="343" parent="3" name="paysSelect">
       <SourceTextLength>36</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="342" parent="3" name="paysSelectOne">
+    <routine id="344" parent="3" name="paysSelectOne">
       <SourceTextLength>59</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="343" parent="3" name="villesDelete">
+    <routine id="345" parent="3" name="villesDelete">
       <SourceTextLength>48</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="344" parent="3" name="villesInsert">
+    <routine id="346" parent="3" name="villesInsert">
       <SourceTextLength>118</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="345" parent="3" name="villesSelectAll">
+    <routine id="347" parent="3" name="villesSelectAll">
       <SourceTextLength>33</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="346" parent="3" name="villesSelectOne">
+    <routine id="348" parent="3" name="villesSelectOne">
       <SourceTextLength>49</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="347" parent="3" name="villesUpdate">
+    <routine id="349" parent="3" name="villesUpdate">
       <SourceTextLength>99</SourceTextLength>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <column id="348" parent="327" name="id_cde">
+    <column id="350" parent="327" name="id_categorie">
+      <Position>1</Position>
+      <DataType>int(5)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="351" parent="327" name="libelle_categorie">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="352" parent="327" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_categorie</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="353" parent="328" name="id_cde">
       <Position>1</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="327" name="date_cde">
+    <column id="354" parent="328" name="date_cde">
       <Position>2</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="327" name="id_client">
+    <column id="355" parent="328" name="id_client">
       <Position>3</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="351" parent="327" name="FK_cdes_client">
+    <index id="356" parent="328" name="FK_cdes_client">
       <ColNames>id_client</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="352" parent="327" name="PRIMARY">
+    <key id="357" parent="328" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_cde</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="353" parent="327" name="FK_cdes_client">
+    <foreign-key id="358" parent="328" name="FK_cdes_client">
       <ColNames>id_client</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>clients</RefTableName>
@@ -1393,50 +1412,50 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="354" parent="328" name="id_client">
+    <column id="359" parent="329" name="id_client">
       <Position>1</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="328" name="nom">
+    <column id="360" parent="329" name="nom">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="328" name="prenom">
+    <column id="361" parent="329" name="prenom">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="328" name="adresse">
+    <column id="362" parent="329" name="adresse">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="328" name="date_naissance">
+    <column id="363" parent="329" name="date_naissance">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="328" name="cp">
+    <column id="364" parent="329" name="cp">
       <Position>6</Position>
       <DataType>char(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="360" parent="328" name="Index_cp">
+    <index id="365" parent="329" name="Index_cp">
       <ColNames>cp</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="361" parent="328" name="PRIMARY">
+    <key id="366" parent="329" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_client</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="362" parent="328" name="FK_clients_cp">
+    <foreign-key id="367" parent="329" name="FK_clients_cp">
       <ColNames>cp</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>villes</RefTableName>
@@ -1444,35 +1463,35 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="363" parent="329" name="id_cde">
+    <column id="368" parent="330" name="id_cde">
       <Position>1</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="364" parent="329" name="id_produit">
+    <column id="369" parent="330" name="id_produit">
       <Position>2</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="329" name="qte">
+    <column id="370" parent="330" name="qte">
       <Position>3</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="366" parent="329" name="FK_ligcdes_id_produit">
+    <index id="371" parent="330" name="FK_ligcdes_id_produit">
       <ColNames>id_produit</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="367" parent="329" name="PRIMARY">
+    <key id="372" parent="330" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_cde
 id_produit</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="368" parent="329" name="FK_ligcdes_cde">
+    <foreign-key id="373" parent="330" name="FK_ligcdes_cde">
       <ColNames>id_cde</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>cdes</RefTableName>
@@ -1480,7 +1499,7 @@ id_produit</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="369" parent="329" name="FK_ligcdes_produit">
+    <foreign-key id="374" parent="330" name="FK_ligcdes_produit">
       <ColNames>id_produit</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>produits</RefTableName>
@@ -1488,141 +1507,187 @@ id_produit</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="370" parent="330" name="id_pays">
+    <column id="375" parent="331" name="id_pays">
       <Position>1</Position>
       <DataType>char(4)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="330" name="nom_pays">
+    <column id="376" parent="331" name="nom_pays">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="372" parent="330" name="PRIMARY">
+    <key id="377" parent="331" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_pays</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="373" parent="331" name="id_produit">
+    <column id="378" parent="332" name="id_produit">
       <Position>1</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="331" name="designation">
+    <column id="379" parent="332" name="designation">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="331" name="prix">
+    <column id="380" parent="332" name="prix">
       <Position>3</Position>
       <DataType>double(7,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="331" name="qte_stockee">
+    <column id="381" parent="332" name="qte_stockee">
       <Position>4</Position>
       <DataType>int(5)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="331" name="photo">
+    <column id="382" parent="332" name="id_categorie">
       <Position>5</Position>
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>int(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="378" parent="331" name="PRIMARY">
+    <index id="383" parent="332" name="FK2">
+      <ColNames>id_categorie</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="384" parent="332" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_produit</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="379" parent="332" name="pseudo">
+    <foreign-key id="385" parent="332" name="FK2">
+      <ColNames>id_categorie</ColNames>
+      <RefSchemaName>julian_cours</RefSchemaName>
+      <RefTableName>categorie</RefTableName>
+      <RefColNames>id_categorie</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="386" parent="333" name="id_client">
       <Position>1</Position>
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="380" parent="332" name="mdp">
+    <column id="387" parent="333" name="pseudo">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="332" name="email">
+    <index id="388" parent="333" name="user_client_uti_fk">
+      <ColNames>pseudo</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="389" parent="333" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_client
+pseudo</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="390" parent="333" name="user_client_clients_fk">
+      <ColNames>id_client</ColNames>
+      <RefSchemaName>julian_cours</RefSchemaName>
+      <RefTableName>clients</RefTableName>
+      <RefColNames>id_client</RefColNames>
+    </foreign-key>
+    <foreign-key id="391" parent="333" name="user_client_uti_fk">
+      <ColNames>pseudo</ColNames>
+      <RefSchemaName>julian_cours</RefSchemaName>
+      <RefTableName>utilisateurs</RefTableName>
+      <RefColNames>pseudo</RefColNames>
+    </foreign-key>
+    <column id="392" parent="334" name="pseudo">
+      <Position>1</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="393" parent="334" name="mdp">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="394" parent="334" name="email">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="382" parent="332" name="account">
+    <column id="395" parent="334" name="account">
       <Position>4</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="383" parent="332" name="email">
+    <index id="396" parent="334" name="email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="384" parent="332" name="PRIMARY">
+    <key id="397" parent="334" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>pseudo</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="385" parent="332" name="email">
+    <key id="398" parent="334" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
-    <column id="386" parent="333" name="id_vendeur">
+    <column id="399" parent="335" name="id_vendeur">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="333" name="nom">
+    <column id="400" parent="335" name="nom">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="388" parent="333" name="chef">
+    <column id="401" parent="335" name="chef">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="389" parent="333" name="cp">
+    <column id="402" parent="335" name="cp">
       <Position>4</Position>
       <DataType>char(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="390" parent="333" name="FK_vendeurs_id_vendeur">
+    <index id="403" parent="335" name="FK_vendeurs_id_vendeur">
       <ColNames>chef</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="391" parent="333" name="FK_vendeurs_cp">
+    <index id="404" parent="335" name="FK_vendeurs_cp">
       <ColNames>cp</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="392" parent="333" name="PRIMARY">
+    <key id="405" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_vendeur</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="393" parent="333" name="FK_vendeurs_id_vendeur">
+    <foreign-key id="406" parent="335" name="FK_vendeurs_id_vendeur">
       <ColNames>chef</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>vendeurs</RefTableName>
       <RefColNames>id_vendeur</RefColNames>
     </foreign-key>
-    <foreign-key id="394" parent="333" name="FK_vendeurs_cp">
+    <foreign-key id="407" parent="335" name="FK_vendeurs_cp">
       <ColNames>cp</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>villes</RefTableName>
@@ -1630,45 +1695,45 @@ id_produit</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="395" parent="334" name="id_vendeur">
+    <column id="408" parent="336" name="id_vendeur">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="334" name="cp">
+    <column id="409" parent="336" name="cp">
       <Position>2</Position>
       <DataType>varchar(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="397" parent="334" name="Date_debut">
+    <column id="410" parent="336" name="Date_debut">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0000-00-00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="398" parent="334" name="date_fin">
+    <column id="411" parent="336" name="date_fin">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0000-00-00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="399" parent="334" name="cp">
+    <index id="412" parent="336" name="cp">
       <ColNames>cp</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="400" parent="334" name="PRIMARY">
+    <key id="413" parent="336" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_vendeur
 cp
 Date_debut</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="401" parent="334" name="FK_vv_vendeur">
+    <foreign-key id="414" parent="336" name="FK_vv_vendeur">
       <ColNames>id_vendeur</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>vendeurs</RefTableName>
@@ -1676,7 +1741,7 @@ Date_debut</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="402" parent="334" name="FK_vv_cp">
+    <foreign-key id="415" parent="336" name="FK_vv_cp">
       <ColNames>cp</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>villes</RefTableName>
@@ -1684,40 +1749,40 @@ Date_debut</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="403" parent="335" name="id_vendeur">
+    <column id="416" parent="337" name="id_vendeur">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="404" parent="335" name="id_produit">
+    <column id="417" parent="337" name="id_produit">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="405" parent="335" name="vente">
+    <column id="418" parent="337" name="vente">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="406" parent="335" name="date_vente">
+    <column id="419" parent="337" name="date_vente">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="407" parent="335" name="PRIMARY">
+    <key id="420" parent="337" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_vendeur
 id_produit
 vente</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="408" parent="335" name="FK_ventes_vendeur">
+    <foreign-key id="421" parent="337" name="FK_ventes_vendeur">
       <ColNames>id_vendeur</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>vendeurs</RefTableName>
@@ -1725,69 +1790,69 @@ vente</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="409" parent="336" name="nom_vendeur">
+    <column id="422" parent="338" name="nom_vendeur">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="410" parent="336" name="designation">
+    <column id="423" parent="338" name="designation">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="411" parent="336" name="vente">
+    <column id="424" parent="338" name="vente">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="412" parent="336" name="PRIMARY">
+    <key id="425" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>nom_vendeur
 designation</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="413" parent="337" name="cp">
+    <column id="426" parent="339" name="cp">
       <Position>1</Position>
       <DataType>varchar(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="414" parent="337" name="nom_ville">
+    <column id="427" parent="339" name="nom_ville">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="415" parent="337" name="site">
+    <column id="428" parent="339" name="site">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="416" parent="337" name="photo">
+    <column id="429" parent="339" name="photo">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="417" parent="337" name="id_pays">
+    <column id="430" parent="339" name="id_pays">
       <Position>5</Position>
       <DataType>char(4)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="418" parent="337" name="Index_id_pays">
+    <index id="431" parent="339" name="Index_id_pays">
       <ColNames>id_pays</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="419" parent="337" name="PRIMARY">
+    <key id="432" parent="339" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cp</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="420" parent="337" name="FK_villes_pays">
+    <foreign-key id="433" parent="339" name="FK_villes_pays">
       <ColNames>id_pays</ColNames>
       <RefSchemaName>julian_cours</RefSchemaName>
       <RefTableName>pays</RefTableName>
@@ -1795,71 +1860,71 @@ designation</ColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <argument id="421" parent="338" name="asCp">
+    <argument id="434" parent="340" name="asCp">
       <Position>1</Position>
       <DataType>char(5)|0s</DataType>
     </argument>
-    <argument id="422" parent="339" name="asPays">
+    <argument id="435" parent="341" name="asPays">
       <Position>1</Position>
       <DataType>varchar(5)|0s</DataType>
     </argument>
-    <argument id="423" parent="340" name="asIdPays">
+    <argument id="436" parent="342" name="asIdPays">
       <Position>1</Position>
       <DataType>char(4)|0s</DataType>
     </argument>
-    <argument id="424" parent="340" name="asNomPays">
+    <argument id="437" parent="342" name="asNomPays">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="425" parent="342" name="asIdPays">
+    <argument id="438" parent="344" name="asIdPays">
       <Position>1</Position>
       <DataType>char(4)|0s</DataType>
     </argument>
-    <argument id="426" parent="343" name="asCp">
+    <argument id="439" parent="345" name="asCp">
       <Position>1</Position>
       <DataType>char(5)|0s</DataType>
     </argument>
-    <argument id="427" parent="344" name="asCp">
+    <argument id="440" parent="346" name="asCp">
       <Position>1</Position>
       <DataType>char(5)|0s</DataType>
     </argument>
-    <argument id="428" parent="344" name="asVille">
+    <argument id="441" parent="346" name="asVille">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="429" parent="344" name="asSite">
+    <argument id="442" parent="346" name="asSite">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="430" parent="344" name="asPhoto">
+    <argument id="443" parent="346" name="asPhoto">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="431" parent="344" name="asIdPays">
+    <argument id="444" parent="346" name="asIdPays">
       <Position>5</Position>
       <DataType>char(4)|0s</DataType>
     </argument>
-    <argument id="432" parent="346" name="asCp">
+    <argument id="445" parent="348" name="asCp">
       <Position>1</Position>
       <DataType>char(5)|0s</DataType>
     </argument>
-    <argument id="433" parent="347" name="asVille">
+    <argument id="446" parent="349" name="asVille">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="434" parent="347" name="asSite">
+    <argument id="447" parent="349" name="asSite">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="435" parent="347" name="asPhoto">
+    <argument id="448" parent="349" name="asPhoto">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="436" parent="347" name="asIdPays">
+    <argument id="449" parent="349" name="asIdPays">
       <Position>4</Position>
       <DataType>char(4)|0s</DataType>
     </argument>
-    <argument id="437" parent="347" name="asCp">
+    <argument id="450" parent="349" name="asCp">
       <Position>5</Position>
       <DataType>char(5)|0s</DataType>
     </argument>

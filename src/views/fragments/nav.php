@@ -64,9 +64,7 @@
                 <a class="nav-link" href="index.php?page=login">Connexion</a>
             </li>
         <?php } ?>
-        <li class="nav-item">
-            <a class="nav-link" href="index.php?page=login">Connexion</a>
-        </li>
+
 
 
 

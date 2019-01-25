@@ -9,7 +9,7 @@ function loginValid($mLog,$mPsw) {
     $sql = "SELECT * FROM utilisateurs WHERE pseudo=? AND mdp=?";
     $cnx = new ConnectionDB();
     $rows =  $cnx->getResponse($sql,[$mLog, $mPsw]);
-    var_dump($rows);
+
     return count($rows)>0?$rows[0]:null;
 }
 

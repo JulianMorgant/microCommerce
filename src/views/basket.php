@@ -1,4 +1,5 @@
 <?php
+include_once MODEL_PATH.'Product.php';
 $listeProduits = $data['list'] ?? [];
 ?>
 <div class="row">
@@ -13,7 +14,7 @@ $listeProduits = $data['list'] ?? [];
 
         </form>
 
-
+    <form method="post">
         <table class="table table-sm table-dark">
             <thead class="thead-light">
             <tr>
@@ -26,12 +27,11 @@ $listeProduits = $data['list'] ?? [];
 
                 <?php
                 foreach ($listeProduits as $product) {
-
                     echo "<tr scope='col'>";
-                    echo "<th scope=\"row\">" . $product['designation'] . "</th>";
-                    echo "<th scope=\"row\">" . $product['prix'] . "</th>";
-                    echo "<th scope=\"row\">" . $product['qte_stockee'] . "</th>";
-                    echo "<th scope=\"row\"><input type='submit' name='add[" . $product['id_produit'] . "]' value='add[" . $product['id_produit'] . "]'>+</input></th>";
+                    echo "<th scope='row'>" . $product->getDesignation() . "</th>";
+                    echo "<th scope='row'>" . $product->getPrix() . "</th>";
+                    echo "<th scope='row'>" . $product->getQte() . "</th>";
+                    echo "<th scope='row'><input type='submit' name='add[" . $product->getId() . "]' value='add[" . $product->getId() . "]'>+</input></th>";
                     echo "</tr>";
 
                 }?>
@@ -39,6 +39,7 @@ $listeProduits = $data['list'] ?? [];
 
             </tbody>
         </table>
+    </form>
     </div>
     <div class="col col-6">
         <h2>Pannier</h2>
