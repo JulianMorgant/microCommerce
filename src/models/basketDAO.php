@@ -17,10 +17,51 @@ class basketDAO
         $this->name = $name;
     }
 
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProductList(): array
+    {
+        return $this->productList;
+    }
+
+    /**
+     * @param array $productList
+     */
+    public function setProductList(array $productList): void
+    {
+        $this->productList = $productList;
+    }
+
     public function selectAll(): array
     {
-
+        return $this->productList;
     }
+
+
+
+    /**
+     * @param $product
+     * @return bool
+     *  DEPRECATED
+     */
+
 
     public function exist($product)
     {
@@ -32,6 +73,15 @@ class basketDAO
 
     }
 
+    public function getOneProductById($id)
+    {
+        foreach ($this->productList as $item) {
+            if ($item->getId() == $id) {return $item;};
+        }
+        return false;
+    }
+
+
     public function clear()
     {
         $this->productList = [];
@@ -40,37 +90,81 @@ class basketDAO
 
     public function add($product)
     {
-        $productInStock = getOneProductById($product->getId());
-        if ($this->exist($product) ) {
+        $actualProduct = $this->getOneProductById($product->getId());
+        $productInStock = getOneProductById($product->getId()) -> getQte();
 
+        if ($actualProduct)  { // le produit existe déjà
 
+            if (($actualProduct->getQte() + $product->getQte()) > $productInStock ) {  // plus d'ajout que de qte dispo
+                echo "trop de qte";
+
+            }   else {
+
+                $actualProduct->setQte($actualProduct->getQte() + $product->getQte());
+                $this->update( $actualProduct);
+            }
+
+        }
+        else {  //le produit n'existe pas encore
+
+            if($product->getQte() > $productInStock) {
+                echo "trop de qte";
+
+            }else{
+                $this->insert($product);
+
+            }
 
 
         }
+    }
+
+    public function update($product) {
+        $productId = $product->getId();
+        for ($i = 0;$i < count($this->productList);$i++){
+            if ($this->productList[$i]->getId() == $productId) {
+                $this->productList[$i] = $product;
+                return $product;
+            }
+        }
+        return false;
+    }
+
+    public function insert($product) {
+        return array_push($this->productList,$product);
+    }
+
+    public function delete($product)
+    {
+        $productId = $product->getId();
+        for ($i = 0;$i < count($this->productList);$i++){
+            if ($this->productList[$i]->getId() == $productId) {
+                return array_slice($this->productList,$i,1);
+
+            }
+        }
+        return false;
 
     }
 
-    public function remove($product)
+    public function save()
     {
+        $_SESSION['basket_'.$this->name] = serialize($this->productList);
 
     }
 
-    public function deleteOne($product)
+    public function load()
     {
-
-    }
-
-    public function save($name)
-    {
-
-
-    }
-
-    public function load($name)
-    {
-
-        $this->name = $name;
-
+        if (isset($_SESSION['basket_'.$this->name])) {
+            $this->productList = unserialize($_SESSION['basket_' . $this -> name]);
+            return true;
+        } else {
+            if(isset($_SESSION['basket_bag'])) {
+                $this->name = "bag";
+                $this->load();
+            }
+        }
+        return false;
 
     }
 }

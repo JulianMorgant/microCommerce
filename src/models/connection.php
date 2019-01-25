@@ -84,7 +84,10 @@ class ConnectionDB{
 
 
     private function getConnection() {
-        self::$connection = new PDO($this->dsn, $this->user,$this->pass, $this->options);
+        if(!self::$connection = new PDO($this->dsn, $this->user,$this->pass, $this->options)){
+            throw new Exception("Connexion Impossible");
+        }return
+            self::$connection;
     }
 
     private function closeConnection(){

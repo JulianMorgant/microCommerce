@@ -7,8 +7,16 @@ $errors = "";
 function loginValid($mLog,$mPsw) {
 
     $sql = "SELECT * FROM utilisateurs WHERE pseudo=? AND mdp=?";
+    try{
     $cnx = new ConnectionDB();
     $rows =  $cnx->getResponse($sql,[$mLog, $mPsw]);
+    }catch (Exception $ex){
+
+        echo "Accès à la base de données impossible : <br>";
+        echo $ex->getMessage();
+        return null;
+    }
+
 
     return count($rows)>0?$rows[0]:null;
 }

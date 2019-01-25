@@ -19,7 +19,7 @@ function getAllProductsLike($term)
 function getOneProductById($id) {
     $cnx = new ConnectionDB();
     $sql = "SELECT * FROM produits WHERE id_produit = ? ";
-    return resultSet2Objects($cnx->getResponse($sql,[$id]));
+    return resultSet2Objects($cnx->getResponse($sql,[$id]))[0];
 
 }
 
