@@ -13,6 +13,7 @@ if (filter_has_var(INPUT_POST,"search")){
     $stringToSearch = filter_input(INPUT_POST,"searchTxt",FILTER_SANITIZE_STRING);
     $listeProduits = getAllProductsLike($stringToSearch);
     $params['list'] = $listeProduits;
+    $params['searchTxt'] = $stringToSearch;
 };
 
 $bag = new basketDAO('bag');

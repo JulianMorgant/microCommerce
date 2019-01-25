@@ -2,18 +2,25 @@
 include_once MODEL_PATH.'Product.php';
 $listeProduits = $data['list'] ?? [];
 $listePannier = $data['basket'] ?? [];
+$searchText = $data['searchTxt'] ?? "";
 ?>
+<form method="post">
+    <div class=col-6">
+    <div class="form-group">
+        <label for="login">Recherche produit :</label>
+        <input type="text" id="searchTxt" name="searchTxt" class="form-control" value="<?=$searchText??""?>">
+    <button type="submit" name="search" id="search" class="form-control">Go</button>
+    </div>
+    </div>
+</form>
 <div class="row">
+
     <div class="col col-6">
 
 
         <h2>Liste des produits</h2>
 
-        <form class="nav-item" method="post">
-            <input type="text" name="searchTxt" id="searchTxt" class="nav-link">
-            <button type="submit" name="search" id="search" class="nav-link">Go</button>
 
-        </form>
 
     <form method="post">
         <table class="table table-sm table-light">
@@ -34,7 +41,6 @@ $listePannier = $data['basket'] ?? [];
                     echo "<th scope='row'>" . $product->getQte() . "</th>";
                     echo "<th scope='row'><input type='submit' name='add[" . $product->getId() . "]' value='add[" . $product->getId() . "]'>+</input></th>";
                     echo "</tr>";
-
                 }?>
 
 
