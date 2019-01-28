@@ -79,3 +79,15 @@ $searchText = $data['searchTxt'] ?? "";
 
     </div>
 </div>
+
+<SCRIPT>
+    $(document).ready(function () {
+
+        var $p = $("div:odd");
+//masque un paragraphe sur deux 
+       // $p.hide();
+
+    });
+
+
+</SCRIPT>

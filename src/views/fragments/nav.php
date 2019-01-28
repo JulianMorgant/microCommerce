@@ -23,7 +23,7 @@
                     Admin Menu
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="index.php?page=tabledemultiplication.php&num=5">Ajout Produit</a>
+                    <a class="dropdown-item" href="index.php?page=adminProduct">Admin Produit</a>
                     <a class="dropdown-item" href="index.php?page=tabledemultiplication.php&num=6">Ajout Client</a>
                     <a class="dropdown-item" href="index.php?page=tabledemultiplication.php&num=7">Ajout Admin</a>
                 </div>
