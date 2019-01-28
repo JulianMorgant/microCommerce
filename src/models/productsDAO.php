@@ -23,6 +23,27 @@ function getOneProductById($id) {
 
 }
 
+function deleteOneProduct($id) {
+    $cnx = new ConnectionDB();
+    $sql = "DELETE FROM produits WHERE id_produit = ? ";
+
+    return $cnx->executeSql($sql,[$id]);
+
+}
+
+function insertOneProduct($product) {
+    $cnx = new ConnectionDB();
+    $sql = "INSERT INTO produits (designation,prix,qte_stockee,id_categorie) VALUES (?,?,?,?)";
+    return $cnx->executeSql($sql,[$product->getDesignation(),$product->getPrix(),$product->getQte(),$product->getCategorie()]);
+
+}
+
+function updateOneProduct($product) {
+    $cnx = new ConnectionDB();
+    $sql = "UPDATE produits SET designation = ? ,prix = ? , qte_stockee = ?, id_categorie = ? WHERE id_produit = ?";
+    return $cnx->executeSql($sql,[$product->getDesignation(),$product->getPrix(),$product->getQte(),$product->getCategorie(),$product->getId()]);
+
+}
 
 /**
  * @param $result

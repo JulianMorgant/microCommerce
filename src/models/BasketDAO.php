@@ -3,7 +3,7 @@
 require_once MODEL_PATH . "connection.php";
 require_once MODEL_PATH . "productsDAO.php";
 
-class basketDAO
+class BasketDAO
 {
     private $name = "bag";
     private $productList = [];
@@ -139,7 +139,7 @@ class basketDAO
         $productId = $product->getId();
         for ($i = 0;$i < count($this->productList);$i++){
             if ($this->productList[$i]->getId() == $productId) {
-                return array_slice($this->productList,$i,1);
+                return array_splice($this->productList,$i,1);
 
             }
         }

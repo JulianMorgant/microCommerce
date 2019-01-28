@@ -104,6 +104,13 @@ class ConnectionDB{
 
     }
 
+    public function executeSql ($sql,$param) {
+        $this->getConnection();
+        $statement =  self::$connection->prepare($sql);
+        $statement->execute($param);
+        $this->closeConnection();
+
+    }
 
 
 }

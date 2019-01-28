@@ -1,10 +1,11 @@
 <?php
 include_once MODEL_PATH . 'Product.php';
-$listeProduits = $data['list'] ?? [];
-$selectedProduct = $data['selectedProduct'] ?? new Product();
-$searchText = $data['searchTxt'] ?? "";
-$catList = $data['catList'] ?? [];
-$errors = "";
+
+$listeProduits = (isset($_SESSION['listProducts'])) ? unserialize($_SESSION['listProducts']) : [];
+$selectedProduct = (isset($_SESSION['selectedProduct'])) ? unserialize($_SESSION['selectedProduct']) : new Product();
+$searchText = $_SESSION['searchTxt'] ?? "";
+$catList = $_SESSION['catList'] ?? [];
+$errors = $_SESSION['errors'] ?? "";
 ?>
 <form method="post">
     <div class=col-6">
@@ -40,7 +41,7 @@ $errors = "";
                     echo "<th scope='row'>" . $product->getDesignation() . "</th>";
                     echo "<th scope='row'>" . $product->getPrix() . "</th>";
                     echo "<th scope='row'>" . $product->getQte() . "</th>";
-                    echo "<th scope='row'><input type='submit' name='edit[" . $product->getId() . "]' value='edit[" . $product->getId() . "]'>+</input></th>";
+                    echo "<th scope='row'><input class='btn btn-primary ' type='submit' name='edit[" . $product->getId() . "]' value='Modif'></th>";
                     echo "</tr>";
                 } ?>
 
@@ -62,38 +63,63 @@ $errors = "";
             </div>
 
             <div class="form-group">
+                <label for="idEdit">Id : </label>
+                <input readonly type="text" id="idEdit" name="idEdit" class="form-control"
+                       value="<?= $selectedProduct->getId() ?? "" ?>">
+            </div>
+
+            <div class="form-group">
                 <label for="designation">Designation : </label>
-                <input type="text" id="designation" name="designation" class="form-control" value="<?= $selectedProduct->getDesignation() ?? "" ?>">
+                <input type="text" id="designationEdit" name="designationEdit" class="form-control"
+                       value="<?= $selectedProduct->getDesignation() ?? "" ?>">
             </div>
 
             <div class="form-group">
                 <label for="prix">Prix : </label>
-                <input type="text" id="prix" name="prix" class="form-control" value="<?= $selectedProduct->getPrix() ?? "" ?>">
+                <input type="text" id="prixEdit" name="prixEdit" class="form-control"
+                       value="<?= $selectedProduct->getPrix() ?? "" ?>">
             </div>
 
             <div class="form-group">
                 <label for="stock">Stock : </label>
-                <input type="text" id="stock" name="stock" class="form-control" value="<?= $selectedProduct->getQte() ?? "" ?>">
+                <input type="number" min="0" id="stockEdit" name="stockEdit" class="form-control"
+                       value="<?= $selectedProduct->getQte() ?? "" ?>">
             </div>
 
             <div class="form-group">
                 <p>Catégorie : </p>
                 <div class="col-6">
-                    <select class="form-control" id="categorie" name = "categorie">
-                        <?php
+                    <div class="form-group">
+                        <select class="custom-select" id="categorieEdit" name = "categorieEdit" required>
+                            <!--                    <select class="form-control" id="categorieEdit" name = "categorieEdit"> -->
+                            <?php
 
-                        foreach ($catList as $cat) {
-                            $selString = ($selectedProduct->getCategorie() == $cat['id_categorie'])?" selected ":"";
-                            echo "<option value=".$cat['id_categorie'].$selString.">".$cat['libelle_categorie']."</option>";
-                        }
-                        ?>
-                    </select>
+                            foreach ($catList as $cat) {
+                                $selString = ($selectedProduct->getCategorie() == $cat['id_categorie']) ? " selected " : "";
+                                echo "<option value=" . $cat['id_categorie'] . $selString . ">" . $cat['libelle_categorie'] . "</option>";
+                            }
+                            ?>
+                        </select>
+                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                    </div>
+                    <!--                    </select>
+                    -->
                 </div>
             </div>
 
             <div>
 
-                <button type="submit" class="btn btn-primary btn-block" name="submit">Connexion</button>
+                <?php if (!$selectedProduct->getId()) { ?>
+
+                    <button type="submit" class="btn btn-primary btn-block" name="b_create">Ajouter</button>
+
+                <?php } else { ?>
+
+                    <button type="submit" class="btn btn-primary btn-block" name="b_update">Modifier</button>
+                    <button type="submit" class="btn btn-primary btn-block" name="b_new">New</button>
+                    <button type="submit" class="btn btn-primary btn-block" name="b_delete">Supprimer</button>
+
+                <?php } ?>
 
             </div>
         </form>

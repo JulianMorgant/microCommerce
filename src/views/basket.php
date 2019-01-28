@@ -1,8 +1,8 @@
 <?php
 include_once MODEL_PATH.'Product.php';
-$listeProduits = $data['list'] ?? [];
+$listeProduits = (isset($_SESSION['listProducts'])) ? unserialize($_SESSION['listProducts']) : [];
 $listePannier = $data['basket'] ?? [];
-$searchText = $data['searchTxt'] ?? "";
+$searchText = $_SESSION['searchTxt'] ?? "";
 ?>
 <form method="post">
     <div class=col-6">
@@ -39,7 +39,7 @@ $searchText = $data['searchTxt'] ?? "";
                     echo "<th scope='row'>" . $product->getDesignation() . "</th>";
                     echo "<th scope='row'>" . $product->getPrix() . "</th>";
                     echo "<th scope='row'>" . $product->getQte() . "</th>";
-                    echo "<th scope='row'><input type='submit' name='add[" . $product->getId() . "]' value='add[" . $product->getId() . "]'>+</input></th>";
+                    echo "<th scope='row'><input class='btn btn-primary btn-block' type='submit' name='add[" . $product->getId() . "]' value='add[" . $product->getId() . "]'>+</input></th>";
                     echo "</tr>";
                 }?>
 
@@ -57,19 +57,28 @@ $searchText = $data['searchTxt'] ?? "";
                     <th>Designation</th>
                     <th>Prix</th>
                     <th>Qte</th>
+                    <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 <?php
+                $total = 0;
+                $totalLine = 0;
                 foreach ($listePannier as $product) {
+                    $totalLine = $product->getQte() *  $product->getPrix();
                     echo "<tr scope='col'>";
                     echo "<th scope='row'>" . $product->getDesignation() . "</th>";
                     echo "<th scope='row'>" . $product->getPrix() . "</th>";
                     echo "<th scope='row'>" . $product->getQte() . "</th>";
-                   // echo "<th scope='row'><input type='submit' name='add[" . $product->getId() . "]' value='add[" . $product->getId() . "]'>+</input></th>";
+                    echo "<th scope='row'>" . $totalLine  . "</th>";
+                    echo "<th scope='row'><input class='btn btn-primary btn-block' type='submit' name='remove[" . $product->getId() . "]' value='X'></input></th>";
                     echo "</tr>";
-                }?>
+                    $total += $totalLine;
+                }
+                echo "<tr><th> Total : ".$total."</th></tr>" ;
+
+                ?>
 
                 </tbody>
             </table>

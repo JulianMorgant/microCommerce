@@ -125,6 +125,15 @@ class Product {
         return $this;
     }
 
+    public function getErrors() {
+        $returnString = "";
+        if (!$this->categorie) {$returnString .= "Erreur catégorie <br>";};
+        if (!$this->designation) {$returnString .= "Erreur désignation <br>";};
+        if (!$this->prix) {$returnString .= "Erreur prix <br>";};
+        if (!$this->qte) {$returnString .= "Erreur quantité <br>";};
+
+        return $returnString;
+    }
 
 
 }
