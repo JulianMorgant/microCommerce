@@ -1,8 +1,14 @@
 <?php
 
-$isPosted = filter_has_var(INPUT_POST,"submit"); // données postés ?
-$errors = "";
+$errors = $_SESSION['errors'] ?? "";
 
+if(isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+}else{$user = new User();}
+
+if(isset($_SESSION['client'])) {
+    $client = unserialize($_SESSION['client']);
+}else{$client = new Client();}
 ?>
 
 
@@ -11,7 +17,7 @@ $errors = "";
 
         <form method="post">
 
-            <h1> -Mon Compte- </h1>
+            <h1> Mon Compte </h1>
 
             <div class="alert alert-danger" style="display:<?= $errors?'block':'none' ?>">
                 <?=$errors?>
@@ -19,23 +25,23 @@ $errors = "";
 
             <div class="form-group" contenteditable="false">
                 <label for="pseudo">Pseudo :</label>
-                <input type="text" id="pseudo" name="pseudo" class="form-control" value="<?=$_SESSION['user']['pseudo']??""?>">
+                <input readonly type="text" id="pseudo" name="pseudo" class="form-control" value="<?=$user->getPseudo() ??""?>">
             </div>
 
             <div class="form-group">
                 <label for="psw">Mot de passe :</label>
-                <input type="text" id="psw" name="psw" class="form-control" value="<?=$_SESSION['user']['mdp']??""?>">
+                <input type="text" id="psw" name="psw" class="form-control" value="<?=$user->getMdp() ??""?>">
             </div>
 
 
             <div class="form-group">
                 <label for="email">Mail :</label>
-                <input type="text" id="email" name="email" class="form-control" value="<?=$_SESSION['user']['email']??""?>">
+                <input type="text" id="email" name="email" class="form-control" value="<?=$user->getEmail()??""?>">
             </div>
 
             <div class="form-group">
                 <label for="admin">Admin :</label>
-                <input type="checkbox" id="admin" name="admin" class="form-control" value="<?=$_SESSION['user']['account']??""?>">
+                <input type="text" id="account" name="account" class="form-control" value="<?=$user->getAccount()??""?>">
             </div>
 
 
@@ -51,36 +57,41 @@ $errors = "";
 
         <form method="post">
 
-            <h1> -Mes Données- </h1>
+            <h1> Mes Données </h1>
 
             <div class="alert alert-danger" style="display:<?= $errors?'block':'none' ?>">
                 <?=$errors?>
             </div>
 
             <div class="form-group">
-                <label for="pseudo">Nom :</label>
-                <input type="text" id="tnom" name="tnom" class="form-control" value="<?=$_SESSION['client']['nom']??""?>">
+                <label for="tid">Id :</label>
+                <input readonly type="text" id="tid" name="tid" class="form-control" value="<?=$client->getId()?? ""?>">
             </div>
 
             <div class="form-group">
-                <label for="psw">Prénom :</label>
-                <input type="text" id="tpnom" name="tpnom" class="form-control" value="<?=$_SESSION['client']['prenom']??""?>">
+                <label for="tnom">Nom :</label>
+                <input type="text" id="tnom" name="tnom" class="form-control" value="<?=$client->getNom()?? ""?>">
+            </div>
+
+            <div class="form-group">
+                <label for="tpnom">Prénom :</label>
+                <input type="text" id="tpnom" name="tpnom" class="form-control" value="<?=$client->getPrenom()??""?>">
             </div>
 
 
             <div class="form-group">
-                <label for="email">Adresse :</label>
-                <input type="text" id="tadresse" name="tadresse" class="form-control" value="<?=$_SESSION['client']['adresse']??""?>">
+                <label for="tadresse">Adresse :</label>
+                <input type="text" id="tadresse" name="tadresse" class="form-control" value="<?=$client->getAdresse()??""?>">
             </div>
 
             <div class="form-group">
-                <label for="admin">CP :</label>
-                <input type="text" id="tcp" name="tcp" class="form-control" value="<?=$_SESSION['client']['CP']??""?>">
+                <label for="tcp">CP :</label>
+                <input type="text" id="tcp" name="tcp" class="form-control" value="<?=$client->getCp()??""?>">
             </div>
 
             <div class="form-group">
-                <label for="admin">Date de Naissance</label>
-                <input type="date" id="tdate" name="tdate" class="form-control" value="<?=$_SESSION['client']['date_naissance']??""?>">
+                <label for="tdate">Date de Naissance</label>
+                <input type="date" id="tdate" name="tdate" class="form-control" value="<?=$client->getDatedenaissance()??""?>">
             </div>
 
             <div>

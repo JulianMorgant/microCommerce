@@ -1,3 +1,13 @@
+<?php
+require_once MODEL_PATH.'User.php';
+if (isset($_SESSION["user"])) {
+    $user = unserialize($_SESSION['user']);
+}else{
+    $user=new User();
+};
+?>
+
+
 <a class="navbar-brand" href="index.php">Home</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +26,7 @@
         </li>
 
         <!-- MENU ADMIN -->
-        <?php if ((isset($_SESSION["user"])) && $_SESSION["user"]["account"] == "admin") { ?>
+        <?php if ((isset($_SESSION["user"])) && $user->getAccount() == "admin") { ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
@@ -56,7 +66,8 @@
             <li class="nav-item">
                 <a class='nav-link'>
                     <?php
-                    echo $_SESSION["user"]["account"]." : ". $_SESSION["user"]["pseudo"]??"" ?>
+
+                    echo $user->getAccount()." : ". $user->getPseudo() ??"" ?>
                 </a>
             </li>
         <?php } else { ?>

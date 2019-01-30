@@ -7,6 +7,8 @@ $searchText = $_SESSION['searchTxt'] ?? "";
 $catList = $_SESSION['catList'] ?? [];
 $errors = $_SESSION['errors'] ?? "";
 ?>
+
+
 <form method="post">
     <div class=col-6">
         <div class="form-group">

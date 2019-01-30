@@ -1,40 +1,32 @@
 <?php
-require_once MODEL_PATH.'connection.php';
+require_once MODEL_PATH . 'connection.php';
+require_once MODEL_PATH . 'UserDAO.php';
 
-$isPosted = filter_has_var(INPUT_POST,"submit"); // données postés ?
+$isPosted = filter_has_var(INPUT_POST, "submit"); // données postés ?
 $errors = "";
 
-function loginValid($mLog,$mPsw) {
-
-    $sql = "SELECT * FROM utilisateurs WHERE pseudo=? AND mdp=?";
-    try{
-    $cnx = new ConnectionDB();
-    $rows =  $cnx->getResponse($sql,[$mLog, $mPsw]);
-    }catch (Exception $ex){
-
-        echo "Accès à la base de données impossible : <br>";
-        echo $ex->getMessage();
-        return null;
-    }
-
-
-    return count($rows)>0?$rows[0]:null;
-}
 
 if ($isPosted) {
-    $psw = filter_input(INPUT_POST,"psw",FILTER_SANITIZE_STRING);
-    $login = filter_input(INPUT_POST,"login",FILTER_SANITIZE_STRING);
+    $psw = filter_input(INPUT_POST, "psw", FILTER_SANITIZE_STRING);
+    $login = filter_input(INPUT_POST, "login", FILTER_SANITIZE_STRING);
 
     // validation de données
 
-    if(empty($login)){$errors .= "Login requis<br>";};
-    if(empty($psw)){$errors .= "Mot de passe requis<br>";};
+    if (empty($login)) {
+        $errors .= "Login requis<br>";
+    };
+    if (empty($psw)) {
+        $errors .= "Mot de passe requis<br>";
+    };
 
-    if(empty($errors)) {
-            $loginOK = loginValid($login,$psw);
-        if($loginOK) { header("location:".$_SESSION['origin']??"home.php"."?name=$login");
-            $_SESSION["user"] = $loginOK;
-            } else {
+    if (empty($errors)) {
+        $userDAO = new UserDAO();
+        $loginOK = $userDAO->loginValid($login, $psw);
+        if ($loginOK) {
+            $_SESSION["user"] = serialize($loginOK);
+            header("location:" . $_SESSION['origin'] ?? "home.php");
+
+        } else {
             $errors = "Informations de connexion incorrectes";
         }
     }
@@ -51,13 +43,13 @@ if ($isPosted) {
 
             <h1> -Login- </h1>
 
-            <div class="alert alert-danger" style="display:<?= $errors?'block':'none' ?>">
-                <?=$errors?>
+            <div class="alert alert-danger" style="display:<?= $errors ? 'block' : 'none' ?>">
+                <?= $errors ?>
             </div>
 
             <div class="form-group">
                 <label for="login">Identifiant :</label>
-                <input type="text" id="login" name="login" class="form-control" value="<?=$login??""?>">
+                <input type="text" id="login" name="login" class="form-control" value="<?= $login ?? "" ?>">
             </div>
 
             <div class="form-group">
