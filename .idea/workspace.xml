@@ -2,52 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f0d05fe-ccb5-42a2-b5f0-cec491247fc8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ProjetPHP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjetPHP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4cf3991c-4244-4fe8-b076-3dd98761aafc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4cf3991c-4244-4fe8-b076-3dd98761aafc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/interfaceClientDAO.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/mvc.php" beforeDir="false" afterPath="$PROJECT_DIR$/libs/mvc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/adminProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/adminProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/basket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/deconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/deconnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/notFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/notFound.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/quiz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/upload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/userAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/products.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/quiz.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/quiz.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/BasketDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/BasketDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/CatDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/CatDAO.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/ClientDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ClientDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/connection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/login-test.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/login-test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/productsDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/productsDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/quizDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/quizDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/adminProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/adminProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/basket.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/basket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/fragments/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/fragments/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/fragments/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/fragments/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/fragments/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/fragments/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/layout1.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/layout1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/quiz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/userAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/userAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,53 +72,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/userAccount.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="446">
+              <caret line="50" column="2" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/adminProduct.php">
+        <entry file="file://$PROJECT_DIR$/src/models/UserDAO.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/interfaceClientDAO.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/adminProduct.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-799">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/deconnection.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/ClientDAO.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+            <state relative-caret-position="102">
+              <caret line="6" column="45" lean-forward="true" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/userAccount.php">
+        <entry file="file://$PROJECT_DIR$/src/models/connection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="90" selection-start-line="90" selection-end-line="90" />
+            <state relative-caret-position="585">
+              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
             </state>
           </provider>
         </entry>
@@ -200,7 +149,6 @@
         <option value="$PROJECT_DIR$/src/views/products.php" />
         <option value="$PROJECT_DIR$/src/controllers/login.php" />
         <option value="$PROJECT_DIR$/src/models/catDAO.php" />
-        <option value="$PROJECT_DIR$/src/models/connection.php" />
         <option value="$PROJECT_DIR$/src/models/Product.php" />
         <option value="$PROJECT_DIR$/src/models/productsDAO.php" />
         <option value="$PROJECT_DIR$/src/models/basketDAO.php" />
@@ -215,12 +163,14 @@
         <option value="$PROJECT_DIR$/src/views/login.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/views/fragments/nav.php" />
-        <option value="$PROJECT_DIR$/src/models/UserDAO.php" />
-        <option value="$PROJECT_DIR$/src/models/ClientDAO.php" />
         <option value="$PROJECT_DIR$/src/models/User.php" />
         <option value="$PROJECT_DIR$/src/models/Client.php" />
         <option value="$PROJECT_DIR$/src/views/userAccount.php" />
         <option value="$PROJECT_DIR$/src/controllers/userAccount.php" />
+        <option value="$PROJECT_DIR$/src/models/interfaceClientDAO.php" />
+        <option value="$PROJECT_DIR$/src/models/UserDAO.php" />
+        <option value="$PROJECT_DIR$/src/models/connection.php" />
+        <option value="$PROJECT_DIR$/src/models/ClientDAO.php" />
       </list>
     </option>
   </component>
@@ -230,9 +180,9 @@
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="106" />
-    <option name="y" value="-19" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="116" />
+    <option name="y" value="54" />
     <option name="width" value="1554" />
     <option name="height" value="920" />
   </component>
@@ -242,7 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,6 +262,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,7 +270,7 @@
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/eCommerce" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -393,6 +343,7 @@
       <workItem from="1548662797003" duration="26372000" />
       <workItem from="1548701377558" duration="13930000" />
       <workItem from="1548769863977" duration="4865000" />
+      <workItem from="1548836851242" duration="2959000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1548153874027</created>
@@ -457,11 +408,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548668798487</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="ajout dao client en objet">
+      <created>1548836370463</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1548836370463</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181358000" />
+    <option name="totallyTimeSpent" value="184852000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -473,15 +431,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1554" height="916" extended-state="6" />
+    <frame x="116" y="54" width="1554" height="920" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4954792" visible="true" weight="0.17024128" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4954792" visible="true" weight="0.17225201" />
       <window_info id="Structure" order="1" sideWeight="0.5045208" side_tool="true" weight="0.15951742" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290653" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32394367" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3210191" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26903552" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -546,7 +504,8 @@
     <MESSAGE value="le pannier marche de base...&#10;finir le pdo basket" />
     <MESSAGE value="le pannier marche de base...&#10;finir le pdo basket&#10;v2" />
     <MESSAGE value="passage des parametre sur des variable de session..." />
-    <option name="LAST_COMMIT_MESSAGE" value="passage des parametre sur des variable de session..." />
+    <MESSAGE value="ajout dao client en objet" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout dao client en objet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -565,9 +524,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/img/photo_5c41f599b163e.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -582,13 +538,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://4cf3991c-4244-4fe8-b076-3dd98761aafc/schema/julian_cours/table/ventes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://4cf3991c-4244-4fe8-b076-3dd98761aafc/schema/julian_cours/table/ventes" />
     <entry file="file://$PROJECT_DIR$/src/controllers/quiz.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -613,20 +563,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://4cf3991c-4244-4fe8-b076-3dd98761aafc/schema/julian_cours/table/pays">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4cf3991c-4244-4fe8-b076-3dd98761aafc/schema/julian_cours/table/vendeurs">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://4cf3991c-4244-4fe8-b076-3dd98761aafc/schema/julian_cours/table/pays" />
+    <entry file="das://4cf3991c-4244-4fe8-b076-3dd98761aafc/schema/julian_cours/table/vendeurs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4cf3991c-4244-4fe8-b076-3dd98761aafc/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/schema.layouts/File per object.groovy">
       <provider selected="true" editor-type-id="text-editor" />
@@ -716,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="112" column="5" lean-forward="true" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://4cf3991c-4244-4fe8-b076-3dd98761aafc/schema/julian_cours/table/produits">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -765,13 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/deconnection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/products.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -807,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="71" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
@@ -825,41 +742,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="130" column="5" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/UserDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="22" selection-start-line="22" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/ClientDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/userAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/userAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
@@ -877,17 +759,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" column="71" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/adminProduct.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        <state relative-caret-position="918">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/adminProduct.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-799">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="1088">
+          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/deconnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/userAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/userAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="50" column="2" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/UserDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/interfaceClientDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/ClientDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="45" lean-forward="true" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
         </state>
       </provider>
     </entry>

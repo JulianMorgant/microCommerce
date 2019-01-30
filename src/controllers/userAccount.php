@@ -19,7 +19,7 @@ if (filter_has_var(INPUT_POST,"submitUser")){ //UPDATE USER EN FAIT
 
     if (!$errors) {
         $userDAO = new UserDAO();
-        $userDAO->updateOne($newUser);
+        $userDAO->update($newUser);
         $_SESSION['user'] = serialize($newUser);
     } else {
         $_SESSION['errors'] = $errors;
@@ -42,7 +42,7 @@ if (filter_has_var(INPUT_POST,"submitClient")){ //UPDATE CLIENT
 
     if (!$errors) {
         $clientDAO = new ClientDAO();
-        $clientDAO->updateOne($newClient);
+        $clientDAO->update($newClient);
         $_SESSION['client'] = serialize($newClient);
     } else {
         $_SESSION['errors'] = $errors;

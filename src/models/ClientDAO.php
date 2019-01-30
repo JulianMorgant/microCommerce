@@ -2,14 +2,15 @@
 
 require_once MODEL_PATH . "connection.php";
 require_once MODEL_PATH . "Client.php";
+require_once MODEL_PATH . "interfaceClientDAO.php";
 
-
-class ClientDAO
+class ClientDAO implements interfaceClientDAO
 {
 
 
     public function __construct()
     {
+
     }
 
 
@@ -29,13 +30,24 @@ class ClientDAO
 
     }
 
-    function  updateOne($client) {
+    function  update($client) {
 
         $cnx = new ConnectionDB();
         $sql = "UPDATE clients SET  nom = ?, prenom = ?, adresse = ?,date_naissance = ?, cp = ? WHERE id_client=?";
         return $cnx->executeSql($sql,[$client->getNom(),$client->getPrenom(),$client->getAdresse(),$client->getDatedenaissance(),$client->getCp(),$client->getId()]);
 
     }
+
+    function delete($client)
+    {
+        // TODO: Implement delete() method.
+    }
+
+    function create($client)
+    {
+        // TODO: Implement create() method.
+    }
+
 
     private function resultSet2Objects($result) : array {
         $outArray = [];
@@ -53,4 +65,6 @@ class ClientDAO
         // return count($outArray)>1 ? $outArray : $outArray[0];
         return $outArray;
     }
+
+
 }
