@@ -1,5 +1,5 @@
 <?php
-require_once MODEL_PATH."login-test.php";
+require_once MODEL_PATH . "login_test.php";
 require_once MODEL_PATH."productsDAO.php";
 require_once MODEL_PATH . "BasketDAO.php";
 require_once MODEL_PATH."Product.php";

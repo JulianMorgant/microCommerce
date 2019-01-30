@@ -126,11 +126,11 @@ class Product {
     }
 
     public function getErrors() {
-        $returnString = "";
-        if (!$this->categorie) {$returnString .= "Erreur catégorie <br>";};
+        $returnString = "";   // 0 ou "0" equivaut à null !!!!
+        if (!$this->categorie && $this->categorie != 0) {$returnString .= "Erreur catégorie <br>";};
         if (!$this->designation) {$returnString .= "Erreur désignation <br>";};
-        if (!$this->prix) {$returnString .= "Erreur prix <br>";};
-        if (!$this->qte) {$returnString .= "Erreur quantité <br>";};
+        if (!$this->prix && $this->prix != 0) {$returnString .= "Erreur prix <br>";};
+        if (!$this->qte && $this->qte != 0) {$returnString .= "Erreur quantité <br>";};
 
         return $returnString;
     }

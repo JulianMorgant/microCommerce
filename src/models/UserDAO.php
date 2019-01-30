@@ -1,9 +1,10 @@
 <?php
 include_once 'connection.php';
 include_once 'User.php';
+include_once 'interfaceUserDAO.php';
 
 
-class UserDAO {
+class UserDAO implements interfaceUserDAO {
 
 
     public function selectAll()
@@ -28,21 +29,32 @@ class UserDAO {
 
     }
 
+    function delete($user)
+    {
+        // TODO: Implement delete() method.
+    }
+
+    function create($user)
+    {
+        // TODO: Implement create() method.
+    }
+
     public function loginValid($mLog,$mPsw) {
 
         $cnx = new ConnectionDB();
-         $sql = "SELECT * FROM utilisateurs WHERE pseudo=? AND mdp=?"; //TODO sortir le psw ???
-            try{
+        $sql = "SELECT * FROM utilisateurs WHERE pseudo=? AND mdp=?"; //TODO sortir le psw ???
+        try{
             $rows =  $cnx->getResponse($sql,[$mLog, $mPsw]);
-            }catch (Exception $ex){
+        }catch (Exception $ex){
 
-                echo "Accès à la base de données impossible : <br>";
-                echo $ex->getMessage();
-                return null;
-            }
-            return count($rows)>0?$this->resultSet2Objects($rows)[0]:null;
+            echo "Accès à la base de données impossible : <br>";
+            echo $ex->getMessage();
+            return null;
+        }
+        return count($rows)>0?$this->resultSet2Objects($rows)[0]:null;
 
     }
+
 
     private function resultSet2Objects($result) : array {
         $outArray = [];
@@ -58,5 +70,6 @@ class UserDAO {
         // return count($outArray)>1 ? $outArray : $outArray[0];
         return $outArray;
     }
+
 
 }

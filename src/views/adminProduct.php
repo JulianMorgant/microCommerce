@@ -31,6 +31,7 @@ $errors = $_SESSION['errors'] ?? "";
                 <thead class="thead-light">
                 <tr>
                     <th>Designation</th>
+                    <th>Categorie</th>
                     <th>Prix</th>
                     <th>Stock</th>
                 </tr>
@@ -41,6 +42,7 @@ $errors = $_SESSION['errors'] ?? "";
                 foreach ($listeProduits as $product) {
                     echo "<tr scope='col'>";
                     echo "<th scope='row'>" . $product->getDesignation() . "</th>";
+                    echo "<th scope='row'>" . $catList[$product->getCategorie()]['libelle_categorie'] . "</th>";
                     echo "<th scope='row'>" . $product->getPrix() . "</th>";
                     echo "<th scope='row'>" . $product->getQte() . "</th>";
                     echo "<th scope='row'><input class='btn btn-primary ' type='submit' name='edit[" . $product->getId() . "]' value='Modif'></th>";
@@ -93,7 +95,6 @@ $errors = $_SESSION['errors'] ?? "";
                 <div class="col-6">
                     <div class="form-group">
                         <select class="custom-select" id="categorieEdit" name = "categorieEdit" required>
-                            <!--                    <select class="form-control" id="categorieEdit" name = "categorieEdit"> -->
                             <?php
 
                             foreach ($catList as $cat) {
@@ -104,8 +105,6 @@ $errors = $_SESSION['errors'] ?? "";
                         </select>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
                     </div>
-                    <!--                    </select>
-                    -->
                 </div>
             </div>
 

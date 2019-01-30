@@ -1,5 +1,5 @@
 <?php
-require_once ROOT_PATH."/src/models/login-test.php";
+require_once ROOT_PATH . "/src/models/login_test.php";
 require_once MODEL_PATH."ClientDAO.php";
 require_once MODEL_PATH."User.php";
 require_once MODEL_PATH."UserDAO.php";
