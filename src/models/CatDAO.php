@@ -5,21 +5,21 @@ require_once MODEL_PATH . "connection.php";
 
 class catDAO
 {
-
+    private $cnx;
 
     /**
      * catDAO constructor.
      */
     public function __construct()
     {
+        $this->cnx = ConnectionDB::getInstance();
     }
 
 
     public function selectAll() : array
     {
-        $cnx = new ConnectionDB();
         $sql = "SELECT * FROM categorie ";
-        return $cnx->getResponse($sql,[]);
+        return $this->cnx->getResponse($sql,[]);
     }
 
 

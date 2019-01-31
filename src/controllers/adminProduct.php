@@ -1,6 +1,6 @@
 <?php
 require_once MODEL_PATH ."login_test_admin.php";
-require_once MODEL_PATH."productsDAO.php";
+require_once MODEL_PATH . "ProductDAO.php";
 require_once MODEL_PATH."Product.php";
 require_once MODEL_PATH."CatDAO.php";
 
@@ -9,26 +9,27 @@ $params = [];
 $errors = "";
 
 $_SESSION['errors'] = "";
+$productDAO = new ProductDAO();
 
 
 if (filter_has_var(INPUT_POST,"search")){
     $_SESSION['searchTxt'] = filter_input(INPUT_POST,"searchTxt",FILTER_SANITIZE_STRING);
-    updateListProducts();
+    updateListProducts($productDAO);
 };
 
 if (filter_has_var(INPUT_POST,"edit")){
     $productId = filter_input(INPUT_POST,"edit",FILTER_SANITIZE_NUMBER_INT,FILTER_REQUIRE_ARRAY);
-    $productToEdit = getOneProductById(array_keys($productId)[0]);
+    $productToEdit = $productDAO->selectOne(array_keys($productId)[0]);
     $_SESSION['selectedProduct'] = serialize($productToEdit);
 
 };
 
 if (filter_has_var(INPUT_POST,"b_delete")){
     $productId = filter_input(INPUT_POST,"idEdit",FILTER_SANITIZE_NUMBER_INT);
-    $productToEdit = deleteOneProduct($productId);
+    $productDAO->delete($productId);
     $_SESSION['selectedProduct'] = serialize(new Product());
     $_SESSION['listProducts'] = serialize([new Product()]);
-    updateListProducts();
+    updateListProducts($productDAO);
 };
 
 if (filter_has_var(INPUT_POST,"b_new")){
@@ -46,8 +47,8 @@ if (filter_has_var(INPUT_POST,"b_create")){
 
     $errors = $newProduct->getErrors();
     if (!$errors) {
-        insertOneProduct($newProduct);
-        updateListProducts();
+        $productDAO->insert($newProduct);
+        updateListProducts($productDAO);
         $_SESSION['selectedProduct'] = serialize(new Product());
     } else {
         $_SESSION['errors'] = $errors;
@@ -68,8 +69,8 @@ if (filter_has_var(INPUT_POST,"b_update")){
     $errors = $newProduct->getErrors();
 
     if (!$errors) {
-        updateOneProduct($newProduct);
-        updateListProducts();
+        $productDAO->update($newProduct);
+        updateListProducts($productDAO);
         $_SESSION['selectedProduct'] = serialize(new Product());
     } else {
         $_SESSION['errors'] = $errors;
@@ -85,8 +86,8 @@ if (!isset($_SESSION['catList'])) {
     $_SESSION['catList'] = $cat->selectAll();
 }
 
-function updateListProducts(){
-    $_SESSION['listProducts'] = serialize(getAllProductsLike($_SESSION['searchTxt']));
+function updateListProducts($productDAO){
+    $_SESSION['listProducts'] = serialize($productDAO->selectLike($_SESSION['searchTxt']));
 }
 
 

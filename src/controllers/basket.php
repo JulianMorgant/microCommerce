@@ -1,6 +1,6 @@
 <?php
 require_once MODEL_PATH . "login_test.php";
-require_once MODEL_PATH."productsDAO.php";
+require_once MODEL_PATH . "ProductDAO.php";
 require_once MODEL_PATH . "BasketDAO.php";
 require_once MODEL_PATH."Product.php";
 

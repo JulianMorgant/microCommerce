@@ -7,25 +7,32 @@ include_once 'interfaceUserDAO.php';
 class UserDAO implements interfaceUserDAO {
 
 
+    private $cnx;
+
+    /**
+     * UserDAO constructor.
+     */
+    public function __construct()
+    {
+           $this->cnx = ConnectionDB::getInstance();
+    }
+
     public function selectAll()
     {
-        $cnx = new ConnectionDB();
         $sql = "SELECT * FROM utilisateurs ";
-        return $this->resultSet2Objects($cnx->getResponse($sql,[]));
+        return $this->resultSet2Objects($this->cnx->getResponse($sql,[]));
     }
 
     function selectOne($pseudo){
 
-        $cnx = new ConnectionDB();
         $sql = "SELECT * FROM utilisateurs WHERE pseudo = ?";
-        return $this->resultSet2Objects($cnx->getResponse($sql,[$pseudo]))[0];
+        return $this->resultSet2Objects($this->cnx->getResponse($sql,[$pseudo]))[0];
     }
 
     function  update($user) {
 
-        $cnx = new ConnectionDB();
         $sql = "UPDATE utilisateurs SET  mdp = ?, email = ?, account = ? WHERE pseudo=?";
-        return $cnx->executeSql($sql,[$user->getMdp(),$user->getEmail(),$user->getAccount(),$user->getPseudo()]);
+        return $this->cnx->executeSql($sql,[$user->getMdp(),$user->getEmail(),$user->getAccount(),$user->getPseudo()]);
 
     }
 
@@ -41,10 +48,9 @@ class UserDAO implements interfaceUserDAO {
 
     public function loginValid($mLog,$mPsw) {
 
-        $cnx = new ConnectionDB();
         $sql = "SELECT * FROM utilisateurs WHERE pseudo=? AND mdp=?"; //TODO sortir le psw ???
         try{
-            $rows =  $cnx->getResponse($sql,[$mLog, $mPsw]);
+            $rows =  $this->cnx->getResponse($sql,[$mLog, $mPsw]);
         }catch (Exception $ex){
 
             echo "Accès à la base de données impossible : <br>";

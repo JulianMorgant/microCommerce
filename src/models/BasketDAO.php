@@ -1,7 +1,7 @@
 <?php
 
 require_once MODEL_PATH . "connection.php";
-require_once MODEL_PATH . "productsDAO.php";
+require_once MODEL_PATH . "ProductDAO.php";
 
 class BasketDAO
 {

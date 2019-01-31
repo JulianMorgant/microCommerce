@@ -1,20 +1,23 @@
 <?php
 
 
+
+
 class ConnectionDB{
 
     static private $connection;
-    private $dsn = 'mysql:host=mysql-julian.alwaysdata.net;dbname=julian_cours;charset=utf8;port=3306';
-    private $user = 'julian_root';
-    private $pass = 'toor';
-    private $options = [
+    static private $dsn = 'mysql:host=mysql-julian.alwaysdata.net;dbname=julian_cours;charset=utf8;port=3306';
+    static private $user = 'julian_root';
+    static $pass = 'toor';
+    static private $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ];
+    private static $_instance = null;
 
     /**
      * ConnectionDB constructor.
      */
-    public function __construct()
+    private function __construct()
     {
     }
 
@@ -23,7 +26,7 @@ class ConnectionDB{
      */
     public function getDsn(): string
     {
-        return $this->dsn;
+        return  self::$dsn;
     }
 
     /**
@@ -31,7 +34,7 @@ class ConnectionDB{
      */
     public function setDsn(string $dsn): void
     {
-        $this->dsn = $dsn;
+        self::$dsn = $dsn;
     }
 
     /**
@@ -39,7 +42,7 @@ class ConnectionDB{
      */
     public function getUser(): string
     {
-        return $this->user;
+        return self::$user;
     }
 
     /**
@@ -47,7 +50,7 @@ class ConnectionDB{
      */
     public function setUser(string $user): void
     {
-        $this->user = $user;
+        self::$user = $user;
     }
 
     /**
@@ -55,7 +58,7 @@ class ConnectionDB{
      */
     public function getPass(): string
     {
-        return $this->pass;
+        return  self::$pass;
     }
 
     /**
@@ -63,7 +66,7 @@ class ConnectionDB{
      */
     public function setPass(string $pass): void
     {
-        $this->pass = $pass;
+        self::$pass = $pass;
     }
 
     /**
@@ -71,7 +74,7 @@ class ConnectionDB{
      */
     public function getOptions(): array
     {
-        return $this->options;
+        return  self::$options;
     }
 
     /**
@@ -79,12 +82,12 @@ class ConnectionDB{
      */
     public function setOptions(array $options): void
     {
-        $this->options = $options;
+        self::$connection = $options;
     }
 
 
     private function getConnection() {
-        if(!self::$connection = new PDO($this->dsn, $this->user,$this->pass, $this->options)){
+        if(!self::$connection = new PDO(self::$dsn, self::$user,self::$pass, self::$options)){
             throw new Exception("Connexion Impossible");
         }return
             self::$connection;
@@ -112,7 +115,14 @@ class ConnectionDB{
 
     }
 
+    public static function getInstance() {
 
+        if(is_null(self::$_instance)) {
+            self::$_instance = new ConnectionDB();
+        }
+
+        return self::$_instance;
+    }
 }
 
 

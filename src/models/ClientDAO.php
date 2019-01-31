@@ -7,34 +7,34 @@ require_once MODEL_PATH . "interfaceClientDAO.php";
 class ClientDAO implements interfaceClientDAO
 {
 
+    private $cnx;
 
     public function __construct()
     {
-
+        $this->cnx = ConnectionDB::getInstance();
     }
 
 
     public function selectAll() : array
     {
-        $cnx = new ConnectionDB();
+
         $sql = "SELECT * FROM clients ";
-        return $this->resultSet2Objects($cnx->getResponse($sql,[]));
+        return $this->resultSet2Objects($this->cnx->getResponse($sql,[]));
     }
 
 
     public function selectOne($pseudo) {
-        $cnx = new ConnectionDB();
+
         $sql = "SELECT * FROM clients WHERE id_client = (SELECT id_client FROM user_client WHERE pseudo = ? ) ";
-        $cnx->getResponse($sql,[$pseudo]);
-        return $this->resultSet2Objects($cnx->getResponse($sql,[$pseudo]))[0];
+       // $this->cnx->getResponse($sql,[$pseudo]);
+        return $this->resultSet2Objects($this->cnx->getResponse($sql,[$pseudo]))[0];
 
     }
 
     function  update($client) {
 
-        $cnx = new ConnectionDB();
         $sql = "UPDATE clients SET  nom = ?, prenom = ?, adresse = ?,date_naissance = ?, cp = ? WHERE id_client=?";
-        return $cnx->executeSql($sql,[$client->getNom(),$client->getPrenom(),$client->getAdresse(),$client->getDatedenaissance(),$client->getCp(),$client->getId()]);
+        return $this->cnx->executeSql($sql,[$client->getNom(),$client->getPrenom(),$client->getAdresse(),$client->getDatedenaissance(),$client->getCp(),$client->getId()]);
 
     }
 
