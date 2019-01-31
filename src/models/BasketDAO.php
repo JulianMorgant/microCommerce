@@ -90,8 +90,9 @@ class BasketDAO
 
     public function add($product)
     {
+        $productDAO = new ProductDAO();
         $actualProduct = $this->getOneProductById($product->getId());
-        $productInStock = getOneProductById($product->getId()) -> getQte();
+        $productInStock = $productDAO->selectOne($product->getId()) -> getQte();
 
         if ($actualProduct)  { // le produit existe déjà
 

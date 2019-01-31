@@ -3,7 +3,9 @@ include_once MODEL_PATH.'Product.php';
 $listeProduits = (isset($_SESSION['listProducts'])) ? unserialize($_SESSION['listProducts']) : [];
 $listePannier = $data['basket'] ?? [];
 $searchText = $_SESSION['searchTxt'] ?? "";
+$catList = $_SESSION['catList'] ?? [];
 ?>
+
 <form method="post">
     <div class=col-6">
     <div class="form-group">
@@ -27,21 +29,23 @@ $searchText = $_SESSION['searchTxt'] ?? "";
             <thead class="thead-light">
             <tr>
                 <th>Designation</th>
+                <th>Categorie</th>
                 <th>Prix</th>
                 <th>Stock</th>
             </tr>
             </thead>
             <tbody>
 
-                <?php
-                foreach ($listeProduits as $product) {
-                    echo "<tr scope='col'>";
-                    echo "<th scope='row'>" . $product->getDesignation() . "</th>";
-                    echo "<th scope='row'>" . $product->getPrix() . "</th>";
-                    echo "<th scope='row'>" . $product->getQte() . "</th>";
-                    echo "<th scope='row'><input class='btn btn-primary btn-block' type='submit' name='add[" . $product->getId() . "]' value='add[" . $product->getId() . "]'>+</input></th>";
-                    echo "</tr>";
-                }?>
+            <?php
+            foreach ($listeProduits as $product) {
+                echo "<tr scope='col'>";
+                echo "<th scope='row'>" . $product->getDesignation() . "</th>";
+                echo "<th scope='row'>" . $catList[$product->getCategorie()]['libelle_categorie'] . "</th>";
+                echo "<th scope='row'>" . $product->getPrix() . "</th>";
+                echo "<th scope='row'>" . $product->getQte() . "</th>";
+                echo "<th scope='row'><input class='btn btn-primary ' type='submit' name='add[" . $product->getId() . "]' value='+'></th>";
+                echo "</tr>";
+            } ?>
 
 
             </tbody>

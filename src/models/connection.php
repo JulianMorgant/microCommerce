@@ -8,7 +8,7 @@ class ConnectionDB{
     static private $connection;
     static private $dsn = 'mysql:host=mysql-julian.alwaysdata.net;dbname=julian_cours;charset=utf8;port=3306';
     static private $user = 'julian_root';
-    static $pass = 'toor';
+    static private $pass = 'toor';
     static private $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ];
@@ -120,7 +120,6 @@ class ConnectionDB{
         if(is_null(self::$_instance)) {
             self::$_instance = new ConnectionDB();
         }
-
         return self::$_instance;
     }
 }
