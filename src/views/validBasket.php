@@ -8,7 +8,7 @@ $client = unserialize($_SESSION['client']);
 <form method="post">
     <div class=col-6">
         <div class="form-group">
-            <label for="login">Recherche produit :</label>
+            <label for="searchTxt">Recherche produit :</label>
             <input type="text" id="searchTxt" name="searchTxt" class="form-control" value="<?= $searchText ?? "" ?>">
             <button type="submit" name="search" id="search" class="form-control">Go</button>
         </div>
@@ -33,14 +33,13 @@ $client = unserialize($_SESSION['client']);
                 <tbody>
 
                 <?php
-                $totalTTC;
                 $TVA = 20;
                 $livraison = 20; //TODO gérer les valeurs de livraison
                 $total = 0;
                 $totalLine = 0;
                 foreach ($listePannier as $product) {
                     $totalLine = $product->getQte() * $product->getPrix();
-                    echo "<tr scope='col'>";
+                    echo "<tr>";
                     echo "<th scope='row'>" . $product->getDesignation() . "</th>";
                     echo "<th scope='row'>" . $catList[$product->getCategorie()]['libelle_categorie'] . "</th>";
                     echo "<th scope='row'>" . $product->getPrix() . "</th>";
@@ -71,12 +70,6 @@ $client = unserialize($_SESSION['client']);
         <form method="post">
 
             <div class="form-group">
-                <label hidden="true" for="tid">Id :</label>
-                <input hidden="true" readonly type="text" id="tid" name="tid" class="form-control"
-                       value="<?= $client->getId() ?? "" ?>">
-            </div>
-
-            <div class="form-group">
                 <label for="tnom">Nom :</label>
                 <span id="tnom"><?= $client->getNom() ?? "" ?></span>
             </div>
@@ -94,7 +87,7 @@ $client = unserialize($_SESSION['client']);
 
             <div class="form-group">
                 <label for="tcp">CP :</label>
-                <span name="tcp"> <?= $client->getCp() ?? "" ?></span>
+                <span id="tcp"> <?= $client->getCp() ?? "" ?></span>
             </div>
 
             <div>
@@ -130,7 +123,7 @@ $client = unserialize($_SESSION['client']);
 <SCRIPT>
     $(document).ready(function () {
 
-        var $p = $("div:odd");
+    //    var $p = $("div:odd");
 //masque un paragraphe sur deux 
         // $p.hide();
 

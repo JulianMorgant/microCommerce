@@ -9,7 +9,7 @@ $catList = $_SESSION['catList'] ?? [];
 <form method="post">
     <div class=col-6">
     <div class="form-group">
-        <label for="login">Recherche produit :</label>
+        <label for="searchTxt">Recherche produit :</label>
         <input type="text" id="searchTxt" name="searchTxt" class="form-control" value="<?=$searchText??""?>">
     <button type="submit" name="search" id="search" class="form-control">Go</button>
     </div>
@@ -38,7 +38,7 @@ $catList = $_SESSION['catList'] ?? [];
 
             <?php
             foreach ($listeProduits as $product) {
-                echo "<tr scope='col'>";
+                echo "<tr>";
                 echo "<th scope='row'>" . $product->getDesignation() . "</th>";
                 echo "<th scope='row'>" . $catList[$product->getCategorie()]['libelle_categorie'] . "</th>";
                 echo "<th scope='row'>" . $product->getPrix() . "</th>";
@@ -71,12 +71,12 @@ $catList = $_SESSION['catList'] ?? [];
                 $totalLine = 0;
                 foreach ($listePannier as $product) {
                     $totalLine = $product->getQte() *  $product->getPrix();
-                    echo "<tr scope='col'>";
+                    echo "<tr>";
                     echo "<th scope='row'>" . $product->getDesignation() . "</th>";
                     echo "<th scope='row'>" . $product->getPrix() . "</th>";
                     echo "<th scope='row'>" . $product->getQte() . "</th>";
                     echo "<th scope='row'>" . $totalLine  . "</th>";
-                    echo "<th scope='row'><input class='btn btn-primary' type='submit' name='remove[" . $product->getId() . "]' value='X'></input></th>";
+                    echo "<th scope='row'><input class='btn btn-primary' type='submit' name='remove[" . $product->getId() . "]' value='X'></th>";
                     echo "</tr>";
                     $total += $totalLine;
                 }
@@ -94,14 +94,3 @@ $catList = $_SESSION['catList'] ?? [];
     </div>
 </div>
 
-<SCRIPT>
-    $(document).ready(function () {
-
-        var $p = $("div:odd");
-//masque un paragraphe sur deux 
-       // $p.hide();
-
-    });
-
-
-</SCRIPT>
