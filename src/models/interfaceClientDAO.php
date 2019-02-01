@@ -2,10 +2,10 @@
 interface interfaceClientDAO {
 
     function selectAll();
-    function selectOne($client);
-    function update($client);
-    function delete($client);
-    function create($client);
+    function selectOne(Client $client);
+    function update(Client $client);
+    function delete(Client $client);
+    function create(Client $client);
 
 
 

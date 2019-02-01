@@ -63,7 +63,7 @@ class BasketDAO
      */
 
 
-    public function exist($product)
+    public function exist(Product $product)
     {
         $idToSearch = $product->getId();
         foreach ($this->productList as $item) {
@@ -88,7 +88,7 @@ class BasketDAO
 
     }
 
-    public function add($product)
+    public function add(Product $product)
     {
         $productDAO = new ProductDAO();
         $actualProduct = $this->getOneProductById($product->getId());
@@ -120,7 +120,7 @@ class BasketDAO
         }
     }
 
-    public function update($product) {
+    public function update(Product $product) {
         $productId = $product->getId();
         for ($i = 0;$i < count($this->productList);$i++){
             if ($this->productList[$i]->getId() == $productId) {
@@ -131,11 +131,11 @@ class BasketDAO
         return false;
     }
 
-    public function insert($product) {
+    public function insert(Product $product) {
         return array_push($this->productList,$product);
     }
 
-    public function delete($product)
+    public function delete(Product $product)
     {
         $productId = $product->getId();
         for ($i = 0;$i < count($this->productList);$i++){

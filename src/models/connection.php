@@ -83,7 +83,7 @@ class ConnectionDB{
      */
     public static function setOptions(array $options): void
     {
-        self::$connection = $options;
+        self::$options = $options;
     }
 
 
@@ -113,6 +113,7 @@ class ConnectionDB{
         $statement =  self::$connection->prepare($sql);
         $statement->execute($param);
         self::closeConnection();
+        return $statement;
 
     }
 

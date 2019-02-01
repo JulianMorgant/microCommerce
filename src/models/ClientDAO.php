@@ -29,7 +29,7 @@ class ClientDAO implements interfaceClientDAO
 
     }
 
-    function  update($client) {
+    function  update(Client $client) {
 
         $sql = "UPDATE clients SET  nom = ?, prenom = ?, adresse = ?,date_naissance = ?, cp = ? WHERE id_client=?";
         return $this->cnx->executeSql($sql,[$client->getNom(),$client->getPrenom(),$client->getAdresse(),$client->getDatedenaissance(),$client->getCp(),$client->getId()]);

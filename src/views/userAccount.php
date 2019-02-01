@@ -42,7 +42,7 @@ if(isset($_SESSION['client'])) {
             </div>
 
             <div class="form-group">
-                <label for="admin">Admin :</label>
+                <label for="account">Admin :</label>
                 <input type="text" id="account" name="account" class="form-control" value="<?=$user->getAccount()??""?>">
             </div>
 

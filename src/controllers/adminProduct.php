@@ -86,7 +86,7 @@ if (!isset($_SESSION['catList'])) {
     $_SESSION['catList'] = $cat->selectAll();
 }
 
-function updateListProducts($productDAO){
+function updateListProducts(ProductDAO $productDAO){
     $_SESSION['listProducts'] = serialize($productDAO->selectLike($_SESSION['searchTxt']));
 }
 

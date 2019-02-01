@@ -2,10 +2,10 @@
 interface interfaceUserDAO {
 
     function selectAll();
-    function selectOne($user);
-    function update($user);
-    function delete($user);
-    function create($user);
+    function selectOne(User $user);
+    function update(User $user);
+    function delete(User $user);
+    function create(User $user);
     function loginValid($log,$psw);
 
 
