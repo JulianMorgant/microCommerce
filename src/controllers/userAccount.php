@@ -7,6 +7,8 @@ require_once MODEL_PATH."Client.php";
 
 $myClient = new ClientDAO();
 
+$_SESSION['errors'] = "";
+
 if (filter_has_var(INPUT_POST,"submitUser")){ //UPDATE USER EN FAIT
 
     $newUser = new User();
@@ -53,7 +55,7 @@ if (filter_has_var(INPUT_POST,"submitClient")){ //UPDATE CLIENT
 
 if (!isset($_SESSION['client'])) {
     $clientDAO = new ClientDAO();
-    $temp = unserialize($_SESSION['user']);
+   // $temp = unserialize($_SESSION['user']);
     $_SESSION['client'] = serialize($clientDAO->selectOne($temp->getPseudo()));
 }
 

@@ -126,7 +126,28 @@ class Client
         return $this;
     }
 
-    public function getErrors(){
+    public function getErrors()
+    {
+        $returnString = "";   // 0 ou "0" equivaut à null !!!!
+        if (!$this->nom) {
+            $returnString .= "Erreur Nom <br>";
+        };
+        if (!$this->prenom) {
+            $returnString .= "Erreur prenom <br>";
+        };
+        if (!$this->adresse) {
+            $returnString .= "Erreur adresse <br>";
+        };
+        if (!$this->datedenaissance) {
+            $returnString .= "Erreur Date de Naissance <br>";
+        };
+        if (!$this->cp) {
+            $returnString .= "Erreur CP <br>";
+        };
+
+        return $returnString;
+
+
         return false;  //TODO
     }
 

@@ -11,17 +11,19 @@ if(isset($_SESSION['client'])) {
 }else{$client = new Client();}
 ?>
 
+<div class="alert alert-danger" style="display:<?= $errors?'block':'none' ?>">
+    <?=$errors?>
+</div>
 
 <div class="row">
+
     <div class="col col-6">
 
         <form method="post">
 
             <h1> Mon Compte </h1>
 
-            <div class="alert alert-danger" style="display:<?= $errors?'block':'none' ?>">
-                <?=$errors?>
-            </div>
+
 
             <div class="form-group" contenteditable="false">
                 <label for="pseudo">Pseudo :</label>
@@ -59,9 +61,6 @@ if(isset($_SESSION['client'])) {
 
             <h1> Mes Données </h1>
 
-            <div class="alert alert-danger" style="display:<?= $errors?'block':'none' ?>">
-                <?=$errors?>
-            </div>
 
             <div class="form-group">
                 <label for="tid">Id :</label>

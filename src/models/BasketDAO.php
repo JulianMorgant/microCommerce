@@ -152,6 +152,7 @@ class BasketDAO
     {
         $_SESSION['basket_'.$this->name] = serialize($this->productList);
 
+
     }
 
     public function load()

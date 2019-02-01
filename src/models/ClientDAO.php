@@ -14,10 +14,8 @@ class ClientDAO implements interfaceClientDAO
         $this->cnx = ConnectionDB::getInstance();
     }
 
-
     public function selectAll() : array
     {
-
         $sql = "SELECT * FROM clients ";
         return $this->resultSet2Objects($this->cnx->getResponse($sql,[]));
     }

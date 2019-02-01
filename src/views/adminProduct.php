@@ -6,6 +6,7 @@ $selectedProduct = (isset($_SESSION['selectedProduct'])) ? unserialize($_SESSION
 $searchText = $_SESSION['searchTxt'] ?? "";
 $catList = $_SESSION['catList'] ?? [];
 $errors = $_SESSION['errors'] ?? "";
+
 ?>
 
 
@@ -128,6 +129,8 @@ $errors = $_SESSION['errors'] ?? "";
 </div>
 
 <SCRIPT>
+    //TEST
+
     $(document).ready(function () {
 
         var $p = $("div:odd");

@@ -3,10 +3,23 @@ require_once MODEL_PATH . "login_test.php";
 require_once MODEL_PATH . "ProductDAO.php";
 require_once MODEL_PATH . "BasketDAO.php";
 require_once MODEL_PATH . "Product.php";
+require_once MODEL_PATH . "CatDAO.php";
 
 $listeProduits = null;
 $params = [];
 $productDAO = new ProductDAO();
+
+if (filter_has_var(INPUT_POST,"valid")){
+    header("location:index.php?page=validBasket");
+};
+
+if (filter_has_var(INPUT_GET,"search")){
+    $stringToSearch = filter_input(INPUT_GET,"search",FILTER_SANITIZE_STRING);
+    $listeProduits = $productDAO->selectLike($stringToSearch);
+    $_SESSION['listProducts'] = serialize($listeProduits);
+    $_SESSION['searchTxt'] = $stringToSearch;
+};
+
 
 if (filter_has_var(INPUT_POST,"search")){
     $stringToSearch = filter_input(INPUT_POST,"searchTxt",FILTER_SANITIZE_STRING);

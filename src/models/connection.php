@@ -5,6 +5,7 @@
 
 class ConnectionDB{
 
+        //singleton
     static private $connection;
     static private $dsn = 'mysql:host=mysql-julian.alwaysdata.net;dbname=julian_cours;charset=utf8;port=3306';
     static private $user = 'julian_root';
@@ -24,7 +25,7 @@ class ConnectionDB{
     /**
      * @return string
      */
-    public function getDsn(): string
+    public static function getDsn(): string
     {
         return  self::$dsn;
     }
@@ -32,7 +33,7 @@ class ConnectionDB{
     /**
      * @param string $dsn
      */
-    public function setDsn(string $dsn): void
+    public static function setDsn(string $dsn): void
     {
         self::$dsn = $dsn;
     }
@@ -40,7 +41,7 @@ class ConnectionDB{
     /**
      * @return string
      */
-    public function getUser(): string
+    public static function getUser(): string
     {
         return self::$user;
     }
@@ -48,7 +49,7 @@ class ConnectionDB{
     /**
      * @param string $user
      */
-    public function setUser(string $user): void
+    public static function setUser(string $user): void
     {
         self::$user = $user;
     }
@@ -56,7 +57,7 @@ class ConnectionDB{
     /**
      * @return string
      */
-    public function getPass(): string
+    public static function getPass(): string
     {
         return  self::$pass;
     }
@@ -64,7 +65,7 @@ class ConnectionDB{
     /**
      * @param string $pass
      */
-    public function setPass(string $pass): void
+    public static function setPass(string $pass): void
     {
         self::$pass = $pass;
     }
@@ -72,7 +73,7 @@ class ConnectionDB{
     /**
      * @return array
      */
-    public function getOptions(): array
+    public static function getOptions(): array
     {
         return  self::$options;
     }
@@ -80,38 +81,38 @@ class ConnectionDB{
     /**
      * @param array $options
      */
-    public function setOptions(array $options): void
+    public static function setOptions(array $options): void
     {
         self::$connection = $options;
     }
 
 
-    private function getConnection() {
+    private static function getConnection() {
         if(!self::$connection = new PDO(self::$dsn, self::$user,self::$pass, self::$options)){
             throw new Exception("Connexion Impossible");
         }return
             self::$connection;
     }
 
-    private function closeConnection(){
+    private static function closeConnection(){
         self::$connection = null;
     }
 
-    public function getResponse ($sql,$param) {
-        $this->getConnection();
+    public static function getResponse ($sql,$param) {
+        self::getConnection();
         $statement =  self::$connection->prepare($sql);
         $statement->execute($param);
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $this->closeConnection();
+        self::closeConnection();
         return  $rows;
 
     }
 
-    public function executeSql ($sql,$param) {
-        $this->getConnection();
+    public static function executeSql ($sql,$param) {
+        self::getConnection();
         $statement =  self::$connection->prepare($sql);
         $statement->execute($param);
-        $this->closeConnection();
+        self::closeConnection();
 
     }
 
