@@ -5,6 +5,7 @@ require_once MODEL_PATH . "BasketDAO.php";
 require_once MODEL_PATH . "Product.php";
 require_once MODEL_PATH . "CatDAO.php";
 
+
 $listeProduits = null;
 $params = [];
 $productDAO = new ProductDAO();

@@ -1,9 +1,13 @@
 <?php
 require_once MODEL_PATH . "login_test.php";
+
 require_once MODEL_PATH . "ProductDAO.php";
 require_once MODEL_PATH . "BasketDAO.php";
 require_once MODEL_PATH . "Product.php";
 require_once MODEL_PATH . "CatDAO.php";
+require_once MODEL_PATH . "ClientDAO.php";
+require_once MODEL_PATH . "Client.php";
+require_once MODEL_PATH . "User.php";
 
 $params = [];
 $productDAO = new ProductDAO();
@@ -24,27 +28,25 @@ if (!isset($_SESSION['catList'])) {
 
 if (filter_has_var(INPUT_POST,"search")){
     $stringToSearch = filter_input(INPUT_POST,"searchTxt",FILTER_SANITIZE_STRING);
-    //$_SESSION['searchTxt'] = $stringToSearch;
     header("location:index.php?page=basket&search=$stringToSearch");
-
- /*   $stringToSearch = filter_input(INPUT_POST,"searchTxt",FILTER_SANITIZE_STRING);
-    $listeProduits = $productDAO->selectLike($stringToSearch);
-    $_SESSION['listProducts'] = serialize($listeProduits);
-    $_SESSION['searchTxt'] = $stringToSearch;
-*/
-
 };
 
-if (filter_has_var(INPUT_POST,"remove")){
-    $productId = filter_input(INPUT_POST,"remove",FILTER_SANITIZE_NUMBER_INT,FILTER_REQUIRE_ARRAY);
-
-    $productToRemove = $productDAO->selectOne(array_keys($productId)[0]);
-    $bag->delete($productToRemove);
-    $bag ->save();
-    $params['basket'] = $bag->selectAll();
-
-
+if (filter_has_var(INPUT_POST,"modifBasket")){
+    header("location:index.php?page=basket&search=$stringToSearch");
 };
+
+if (filter_has_var(INPUT_POST,"modifAccount")){
+    $stringToSearch = filter_input(INPUT_POST,"searchTxt",FILTER_SANITIZE_STRING);
+    header("location:index.php?page=userAccount");
+};
+
+if (!isset($_SESSION['client'])) {
+    $clientDAO = new ClientDAO();
+    $temp = unserialize($_SESSION['user']);
+    $_SESSION['client'] = serialize($clientDAO->selectOne($temp->getPseudo()));
+}
+
+
 
 $errors = "";
 

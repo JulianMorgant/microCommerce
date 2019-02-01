@@ -146,9 +146,6 @@ class Client
         };
 
         return $returnString;
-
-
-        return false;  //TODO
     }
 
 

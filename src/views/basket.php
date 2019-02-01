@@ -76,7 +76,7 @@ $catList = $_SESSION['catList'] ?? [];
                     echo "<th scope='row'>" . $product->getPrix() . "</th>";
                     echo "<th scope='row'>" . $product->getQte() . "</th>";
                     echo "<th scope='row'>" . $totalLine  . "</th>";
-                    echo "<th scope='row'><input class='btn btn-primary btn-block' type='submit' name='remove[" . $product->getId() . "]' value='X'></input></th>";
+                    echo "<th scope='row'><input class='btn btn-primary' type='submit' name='remove[" . $product->getId() . "]' value='X'></input></th>";
                     echo "</tr>";
                     $total += $totalLine;
                 }
