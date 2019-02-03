@@ -35,9 +35,12 @@ if (filter_has_var(INPUT_POST,"modifBasket")){
     header("location:index.php?page=basket&search=$stringToSearch");
 };
 
-if (filter_has_var(INPUT_POST,"modifAccount")){
-    $stringToSearch = filter_input(INPUT_POST,"searchTxt",FILTER_SANITIZE_STRING);
-    header("location:index.php?page=userAccount");
+
+
+if (filter_has_var(INPUT_POST,"validCommand")){
+    //$stringToSearch = filter_input(INPUT_POST,"searchTxt",FILTER_SANITIZE_STRING);
+    $_SESSION['validCommand'] = true;
+    header("location:index.php?page=validCommand");
 };
 
 if (!isset($_SESSION['client'])) {
