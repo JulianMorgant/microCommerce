@@ -7,6 +7,8 @@
 class ConnectionDB{
 
         //singleton
+
+    static private $_instance;
     /**
      * @var
      */
@@ -29,7 +31,7 @@ class ConnectionDB{
     static private $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ];
-     */
+
 
     /**
      * ConnectionDB constructor.
@@ -153,7 +155,6 @@ class ConnectionDB{
 
     }
 
-     * @return ConnectionDB|null
     public static function getInstance() {
 
         if(is_null(self::$_instance)) {
