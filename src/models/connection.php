@@ -29,10 +29,7 @@ class ConnectionDB{
     static private $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ];
-    /**
-     * @var null
      */
-    static private $_instance = null;
 
     /**
      * ConnectionDB constructor.
@@ -156,13 +153,7 @@ class ConnectionDB{
 
     }
 
-    public static function getLastInsertId(){
-
-    }
-
-    /**
      * @return ConnectionDB|null
-     */
     public static function getInstance() {
 
         if(is_null(self::$_instance)) {
