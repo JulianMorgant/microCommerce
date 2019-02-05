@@ -3,8 +3,14 @@
 require_once MODEL_PATH . "connection.php";
 
 
+/**
+ * Class catDAO
+ */
 class catDAO
 {
+    /**
+     * @var ConnectionDB|null
+     */
     private $cnx;
 
     /**
@@ -16,6 +22,10 @@ class catDAO
     }
 
 
+    /**
+     * @return array
+     * @throws Exception
+     */
     public function selectAll() : array
     {
         $sql = "SELECT * FROM categorie ";
@@ -23,6 +33,9 @@ class catDAO
     }
 
 
+    /**
+     * @param $id
+     */
     public function selectOne($id) {
 
 

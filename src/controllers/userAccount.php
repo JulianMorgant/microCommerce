@@ -1,13 +1,52 @@
 <?php
 require_once ROOT_PATH . "/src/models/login_test.php";
+
 require_once MODEL_PATH."ClientDAO.php";
 require_once MODEL_PATH."User.php";
 require_once MODEL_PATH."UserDAO.php";
 require_once MODEL_PATH."Client.php";
+require_once MODEL_PATH."CommandeDAO.php";
+require_once MODEL_PATH."LigneCommandeDAO.php";
+require_once MODEL_PATH."Commande.php";
+require_once MODEL_PATH."ProductDAO.php";
+require_once MODEL_PATH."Product.php";
 
 $myClient = new ClientDAO();
 
 $_SESSION['errors'] = "";
+
+if (filter_has_var(INPUT_POST,"edit")){
+
+    $commandDAO = new CommandeDAO();
+    $ligneCommandDAO = new LigneCommandeDAO();
+    $productDAO = new ProductDAO();
+
+    $commandId = filter_input(INPUT_POST,"edit",FILTER_SANITIZE_NUMBER_INT,FILTER_REQUIRE_ARRAY);
+    $selectedCommadId = array_keys($commandId)[0];
+
+    // Récupération de la commande
+    $commandToEdit = new Commande();
+    $commandToEdit -> setId($selectedCommadId);
+    $commandToEdit = $commandDAO->selectOne($commandToEdit);
+    $_SESSION['selectedCommand'] = serialize($commandToEdit[0]);
+
+    // Récupération des lignes de commandes associées
+    $oneLigneCommande = new LigneCommande();
+    $oneLigneCommande->setIdCommande($selectedCommadId);
+    $allLigneCommande = $ligneCommandDAO->selectOne($oneLigneCommande);
+
+    //lecture des lignes de commande et transformation en produits
+    $listProducts = [];
+    foreach ($allLigneCommande as $line) {
+        $product = $productDAO->selectOne($line->getIdProduit());
+        $product->setQte($line->getQte());
+        array_push($listProducts, $product);
+    }
+    $_SESSION['listProducts'] = serialize($listProducts);
+};
+
+
+
 
 if (filter_has_var(INPUT_POST,"submitUser")){ //UPDATE USER EN FAIT
 
@@ -56,8 +95,14 @@ if (filter_has_var(INPUT_POST,"submitClient")){ //UPDATE CLIENT
 if (!isset($_SESSION['client'])) {
     $clientDAO = new ClientDAO();
     $temp = unserialize($_SESSION['user']);
-    $_SESSION['client'] = serialize($clientDAO->selectOne($temp->getPseudo()));
+    $client = $clientDAO->selectOne($temp->getPseudo());
+    $_SESSION['client'] = serialize($client);
+    // chargement liste des commandes
+    $commandDAO = new CommandeDAO();
+    $listCommand = $commandDAO->selectAllByClient($client ->getId());
+    $_SESSION['listCommand'] = serialize($listCommand);
 }
+
 
 echo $viewContent = getRenderedView("userAccount",[]);
 

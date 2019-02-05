@@ -1,19 +1,38 @@
 <?php
 
 
-
-
+/**
+ * Class ConnectionDB
+ */
 class ConnectionDB{
 
         //singleton
+    /**
+     * @var
+     */
     static private $connection;
+    /**
+     * @var string
+     */
     static private $dsn = 'mysql:host=mysql-julian.alwaysdata.net;dbname=julian_cours;charset=utf8;port=3306';
+    /**
+     * @var string
+     */
     static private $user = 'julian_root';
+    /**
+     * @var string
+     */
     static private $pass = 'toor';
+    /**
+     * @var array
+     */
     static private $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ];
-    private static $_instance = null;
+    /**
+     * @var null
+     */
+    static private $_instance = null;
 
     /**
      * ConnectionDB constructor.
@@ -87,6 +106,10 @@ class ConnectionDB{
     }
 
 
+    /**
+     * @return PDO
+     * @throws Exception
+     */
     private static function getConnection() {
         if(!self::$connection = new PDO(self::$dsn, self::$user,self::$pass, self::$options)){
             throw new Exception("Connexion Impossible");
@@ -94,11 +117,20 @@ class ConnectionDB{
             self::$connection;
     }
 
+    /**
+     *
+     */
     private static function closeConnection(){
         self::$connection = null;
     }
 
-    public static function getResponse ($sql,$param) {
+    /**
+     * @param $sql
+     * @param $param
+     * @return mixed
+     * @throws Exception
+     */
+    public static function getResponse ($sql, $param) {
         self::getConnection();
         $statement =  self::$connection->prepare($sql);
         $statement->execute($param);
@@ -108,15 +140,29 @@ class ConnectionDB{
 
     }
 
-    public static function executeSql ($sql,$param) {
+    /**
+     * @param $sql
+     * @param $param
+     * @return mixed
+     * @throws Exception
+     */
+    public static function executeSql ($sql, $param) {
         self::getConnection();
         $statement =  self::$connection->prepare($sql);
         $statement->execute($param);
+        $id = self::$connection->lastInsertId();
         self::closeConnection();
-        return $statement;
+        return $id;
 
     }
 
+    public static function getLastInsertId(){
+
+    }
+
+    /**
+     * @return ConnectionDB|null
+     */
     public static function getInstance() {
 
         if(is_null(self::$_instance)) {

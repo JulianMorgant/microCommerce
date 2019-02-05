@@ -29,6 +29,14 @@ class CommandeDAO implements interfaceCommandeDAO
 
     }
 
+    public function selectAllByClient(int $id) {
+
+        $sql = "SELECT * FROM cdes WHERE id_client = ?";
+        // $this->cnx->getResponse($sql,[$pseudo]);
+        return $this->resultSet2Objects($this->cnx->getResponse($sql,[$id]));
+
+    }
+
     function  update(Commande $commande) {
 
         $sql = "UPDATE cdes SET  id_client = ?, date_cde = ? WHERE (id_cde = ?) ";
@@ -48,6 +56,14 @@ class CommandeDAO implements interfaceCommandeDAO
         $sql = "INSERT INTO cdes (date_cde,id_client) VALUES (?,?)";
         return $this->cnx->executeSql($sql,[$commande->getDate(),$commande->getIdClient()]);
     }
+
+/*    function getLastInsertId(){
+        $sql = "SELECT LAST_INSERT_ID() FROM cdes";
+        //return $this->cnx->getResponse($sql,[]);
+        return $this->cnx->lastInsertId();
+
+    }
+*/
 
 
     private function resultSet2Objects($result) : array {

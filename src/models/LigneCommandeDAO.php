@@ -24,7 +24,6 @@ class LigneCommandeDAO implements interfaceLigneCommandeDAO
     public function selectOne(LigneCommande $ligneCommande) {
 
         $sql = "SELECT * FROM ligcdes WHERE id_cde = ?";
-       // $this->cnx->getResponse($sql,[$pseudo]);
         return $this->resultSet2Objects($this->cnx->getResponse($sql,[$ligneCommande->getIdCommande()]));
 
     }

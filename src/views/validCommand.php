@@ -3,12 +3,13 @@ include_once MODEL_PATH . 'Product.php';
 $listePannier = $data['basket'] ?? [];
 $catList = $_SESSION['catList'] ?? [];
 $client = unserialize($_SESSION['client']);
+$command = unserialize($_SESSION['command']);
 ?>
 
 <div class="row">
 
     <div class="col col-6">
-        <h2>Commande validée n° </h2>
+        <h2>Commande validée n° <?= $command->getId() ?> </h2>
         <form method="post">
             <table class="table table-sm table-light">
                 <thead class="thead-light">
